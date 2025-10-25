@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimu Kina Dhidi ya Rushwa: Uwazi na Uadilifu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* MTINDO WA JUMLA (GLOBAL STYLES) */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 30px;
+            z-index: 999;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .openbtn:hover {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.7;
+            font-size: 16px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Background slideshow */
+        .bg-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .bg-slide.active {
+            opacity: 1;
+        }
+        
+        /* 添加半透明覆盖层以提高文字可读性 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.65) 100%);
+            z-index: -1;
+        }
+
+        /* CONTAINER KWA AJILI YA MAUDHUI YOTE */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* KICHWA KIKUU (HEADER) */
+        header {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border-radius: 0 0 25px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 添加装饰性元素 */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 40s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        
+        header p {
+            font-size: 1.4em;
+            margin-top: 10px;
+            font-weight: 300;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* MTINDO WA SEHEMU MPYA ZA MAUDHUI (NEW SECTIONS) */
+        .content-section {
+            padding: 40px 20px;
+            margin: 227px 20px; 
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* 添加装饰性背景图案 */
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Professional colors for each container */
+        #definition {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.9) 0%, rgba(52, 73, 94, 0.9) 100%); 
+            color: #ffffff; 
+        }
+        #types {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.9) 100%); 
+            color: #ffffff; 
+        }
+        #examples {
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.9) 0%, rgba(155, 89, 182, 0.9) 100%); 
+            color: #ffffff; 
+        }
+        #effects {
+            background: linear-gradient(135deg, rgba(211, 84, 0, 0.9) 0%, rgba(230, 126, 34, 0.9) 100%); 
+            color: #ffffff; 
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            margin-top: 35px;
+            font-size: 1.6em;
+            border-left: 6px solid;
+            padding-left: 15px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* H3 colors to match container theme */
+        #definition h3 { border-left-color: #3498db; }
+        #types h3 { border-left-color: #2ecc71; }
+        #examples h3 { border-left-color: #9b59b6; }
+        #effects h3 { border-left-color: #e67e22; }
+
+        p { 
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.05em;
+        }
+
+        /* MTINDO WA LISTS */
+        ul {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        ul li {
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        ul li:hover {
+            padding-left: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        ul li i {
+            margin-right: 12px;
+            font-size: 1.1em;
+        }
+        
+        /* List icon colors to match container theme */
+        #definition ul li i { color: #3498db; }
+        #types ul li i { color: #2ecc71; }
+        #examples ul li i { color: #9b59b6; }
+        #effects ul li i { color: #e67e22; }
+
+        /* MTINDO WA CHUKUA HATUA (ACTION SECTION) */
+        .action-section {
+            background: linear-gradient(135deg, rgba(192, 57, 43, 0.9) 0%, rgba(231, 76, 60, 0.9) 100%); 
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 227px 20px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 添加装饰性背景图案 */
+        .action-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .action-section h3 {
+            color: #ffffff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .action-point {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .action-point:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* MTINDO WA VIDEO */
+        .video-container {
+            margin-top: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .action-point i {
+            color: #f1c40f; 
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.95) 100%);
+            color: #ecf0f1;
+            font-size: 0.9em;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+            border-radius: 25px 25px 0 0;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --------------------------------- */
+        /* SLIDESHOW CSS */
+        /* --------------------------------- */
+
+        .carousel-container {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .carousel-slide {
+            display: none; 
+            text-align: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+            color: white;
+            padding: 40px 15px 15px;
+            font-size: 1.2em;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .prev-btn, .next-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 12px 18px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            border: none;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .dots-container {
+            text-align: center;
+            padding: 15px 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 14px;
+            width: 14px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.4s ease;
+        }
+
+        .active-dot, .dot:hover {
+            background-color: #ffffff;
+            transform: scale(1.3);
+        }
+
+        .fading {
+          animation-name: fade;
+          animation-duration: 1.2s;
+        }
+        @keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+        
+        /* 添加滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.8), rgba(142, 68, 173, 0.8));
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 1), rgba(142, 68, 173, 1));
+        }
+        
+        /* Video title styling */
+        .video-title {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background slideshow -->
+    <div class="bg-slideshow">
+        <div class="bg-slide active" style="background-image: url('https://picsum.photos/seed/anticorruption1/1920/1080.jpg')"></div>
+        <div class="bg-slide" style="background-image: url('https://picsum.photos/seed/education2/1920/1080.jpg')"></div>
+        <div class="bg-slide" style="background-image: url('https://picsum.photos/seed/integrity3/1920/1080.jpg')"></div>
+        <div class="bg-slide" style="background-image: url('https://picsum.photos/seed/transparency4/1920/1080.jpg')"></div>
+        <div class="bg-slide" style="background-image: url('https://picsum.photos/seed/justice5/1920/1080.jpg')"></div>
+    </div>
+
+    <a href="Home-page.html.html"><span class="openbtn" onclick="openNav()">BACK</span></a>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gavel"></i> Elimu ya Kina Dhidi ya Rushwa</h1>
+            <p>Jukwaa la Kuimarisha Uwazi na Kukuza Uadilifu Katika Sekta ya Elimu.</p>
+        </header>
+    
+        <div class="carousel-container">
+            
+            <div class="carousel-slide">
+                <img src="PC1.png" alt="Picha ya Kwanza">
+                <div class="caption">Tukatae Rushwa</div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="PIC3.jpg" alt="Picha ya Pili">
+                <div class="caption">Rushwa ni adui wa haki</div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="PIC2.jpg" alt="Picha ya Tatu">
+                <div class="caption">Kwa pamoja tunaweza</div>
+            </div>
+
+            <button class="prev-btn">&#10094;</button>
+            <button class="next-btn">&#10095;</button>
+
+            <div class="dots-container">
+            </div>
+
+        </div>
+
+        <section id="definition" class="content-section">
+            <h2><i class="fas fa-book-open"></i> Ufafanuzi wa Rushwa</h2>
+            <p><strong>Rushwa</strong> ni matumizi ya mamlaka ya umma, nafasi, au rasilimali kwa ajili ya kujipatia faida binafsi. Katika sekta ya elimu, rushwa inaharibu misingi yote ya haki, ubora, na usawa, na inalemaza mustakabali wa Taifa.</p>
+            
+            <h3>Misingi ya Kisheria</h3>
+            <p>Kupambana na rushwa katika elimu kunategemea sheria na mikataba mbalimbali ya kitaifa na kimataifa, ikiwemo:</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>Sheria ya Kuzuia na Kupambana na Rushwa (PCCB Act).</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Mkataba wa Umoja wa Mataifa Dhidi ya Rushwa (UNCAC).</strong></li>
+                <li><i class="fas fa-check-circle"></i> Kanuni za Maadili ya Walimu na Watumishi wa Umma.</li>
+            </ul>
+
+            
+            
+        </section>
+
+        <section id="types" class="content-section">
+            <h2><i class="fas fa-list"></i> Aina za Rushwa</h2>
+            <p>Rushwa huweza kuwa wa aina mbalimbali, kulingana na ukubwa wake na namna inavyotendeka.</p>
+            
+            <h3>Kulingana na Ukubwa</h3>
+            <ul>
+                <li><i class="fas fa-coins"></i> <strong>Rushwa Ndogo (Petty Corruption):</strong> Inahusisha kiasi kidogo cha fedha na hutokea katika ngazi za chini za utoaji huduma za kila siku.</li>
+                <li><i class="fas fa-piggy-bank"></i> <strong>Rushwa Kubwa (Grand Corruption):</strong> Inahusisha kiasi kikubwa sana cha fedha na hutendwa na viongozi wa ngazi za juu wa kisiasa au watendaji wa serikali.</li>
+                <li><i class="fas fa-building"></i> <strong>Rushwa ya Kimfumo (Systemic Corruption):</strong> Hutokea wakati vitendo vya rushwa vinakuwa sehemu ya utamaduni na utaratibu wa kazi katika taasisi.</li>
+            </ul>
+
+            <h3>Kulingana na Namna ya Uendeshaji</h3>
+            <ul>
+                <li><i class="fas fa-hand-holding-usd"></i> <strong>Rushwa ya Fedha (Bribery):</strong> Kutoa au kupokea fedha, zawadi, au faida nyingine ili kushawishi maamuzi.</li>
+                <li><i class="fas fa-user-friends"></i> <strong>Upendeleo (Nepotism/Favouritism):</strong> Kutoa fursa kama ajira au mikataba kwa watu wa familia au marafiki badala ya wenye sifa.</li>
+                <li><i class="fas fa-user-secret"></i> <strong>Udanganyifu wa Kielimu:</strong> Kuvujisha mitihani, kubadilisha alama, au kutoa vyeti vya uongo.</li>
+                <li><i class="fas fa-ghost"></i> <strong>Utoro na Uzembe:</strong> Walimu kutokuwepo kazini bila ruhusa ('Ghost teachers') au kutofanya kazi kwa bidii.</li>
+            </ul>
+
+            
+        </section>
+
+        <section id="examples" class="content-section">
+            <h2><i class="fas fa-exclamation-triangle"></i> Mifano ya Rushwa katika Elimu</h2>
+            <p>Hapa kuna mifano halisi ya jinsi rushwa inavyoweza kujitokeza katika mazingira ya shule na taasisi za elimu:</p>
+            <ul>
+                <li><i class="fas fa-money-check-alt"></i> Mzazi kutoa hongo kwa mwalimu ili mtoto wake apate alama nzuri.</li>
+                <li><i class="fas fa-user-tie"></i> Mkurugenzi wa shule kumwajiri mfanyakazi ambaye si stahiki kwa sababu ya urafiki au undugu.</li>
+                <li><i class="fas fa-file-invoice-dollar"></i> Uongozi wa shule kununua vifaa vya shule kwa bei ya juu na kugawanya fedha za ziada.</li>
+                <li><i class="fas fa-graduation-cap"></i> Mwanafunzi kujaribu kumtahirishe mwalimu ili apate majibu ya mtihani.</li>
+                <li><i class="fas fa-chalkboard-teacher"></i> Mwalimu kutoa somo la kibinafsi (private tuition) kwa wanafunzi wake na kuwapa alama za juu wale wanaolipia.</li>
+                <li><i class="fas fa-clipboard-list"></i> Kupoteza au kubadilisha rekodi za wanafunzi kwa ajili ya kuficha udanganyifu.</li>
+            </ul>
+
+            <div class="video-container">
+                <video controls src="CAG & TAKUKURU waweka taarifa zao mezani kwa Rais Samia - SAUT DIGITAL (360p, h264) (1).mp4" allowfullscreen></video>
+                <div class="video-title">Video: Mifano ya Rushwa katika Sekta ya Elimu</div>
+            </div>
+        </section>
+
+        <section id="effects" class="content-section">
+            <h2><i class="fas fa-bomb"></i> Athari Mbaya za Rushwa</h2>
+            <p>Rushwa katika elimu ina madhara makubwa na ya muda mrefu kwa mtu binafsi, jamii, na taifa kwa ujumla:</p>
+            <ul>
+                <li><i class="fas fa-chart-line-down"></i> <strong>Kuanguka kwa Ubora wa Elimu:</strong> Wanafunzi hupata digrii na vyeti ambavyo havilingani na ujuzi halisi, huku kuongeza watu wasio na uwezo katika soko la ajira.</li>
+                <li><i class="fas fa-balance-scale-left"></i> <strong>Kuongeza Ukosefu wa Haki:</strong> Wanafunzi wasiojiweza kutoa hongo au wasio na mahusiano hupoteza fursa za kielimu, huku kuendeleza mzunguko wa umaskini.</li>
+                <li><i class="fas fa-user-times"></i> <strong>Kukua kwa Utamaduni wa Kutoaminiana:</strong> Rushwa huaribu uaminifu kati ya wanafunzi, walimu, wazazi, na jamii kwa ujumla.</li>
+                <li><i class="fas fa-hand-holding-usd-slash"></i> <strong>Tatizo la Rasilimali:</strong> Fedha zilizokusudiwa kwa ajili ya maendeleo ya shule, vifaa, na mishahara hupotea bila manufaa.</li>
+                <li><i class="fas fa-heart-broken"></i> <strong>Kuendeleza Unyanyasaji:</strong> Aina fulani za rushwa, kama vile 'sextortion' (kudai ngono kwa ajili ya alama au fursa), husababisha msongo wa mawazo na hatua za kijamii.</li>
+            </ul>
+
+            <div class="video-container">
+                <video controls src="Rais Samia ataka Watanzania kuungana kudhibiti rushwa - Mama Yuko Kazini (720p, h264).mp4" allowfullscreen></video>
+                <div class="video-title">ALIVYOWABANA WALA RUSHWA  RAIS SAMIA.....</div>
+            </div>
+        </section>
+        
+        <section id="hatua" class="action-section">
+            <h3><i class="fas fa-bullhorn"></i> Msimamo Wetu: Kataa, Pigana, na Ripoti!</h3>
+            
+            <p>Uadilifu haujengwi kwa maneno, bali kwa matendo. Kuwa sehemu ya harakati ya kuleta mabadiliko chanya:</p>
+            
+            <div class="action-point">
+                <i class="fas fa-hand-fist"></i>
+                <h4>Kataa Katika Kila Hali</h4>
+                <p>Chagua kufanya kilicho sahihi, hata kama ni kigumu. Usitoe, na wala usipokee hongo.</p>
+            </div>
+            <div class="action-point">
+                <i class="fas fa-paper-plane"></i>
+                <h4>Ripoti Bila Kuogopa</h4>
+                <p>Tumia mifumo ya siri kuripoti vitendo vya rushwa unavyoviona kwa mamlaka husika (Mfano: PCCB).</p>
+            </div>
+            <div class="action-point">
+                <i class="fas fa-heart"></i>
+                <h4>Jenga Utamaduni wa Uadilifu</h4>
+                <p>Anza na nafsi yako. Kuwa mwaminifu katika mitihani, kazi za nyumbani, na matumizi wa rasilimali za shule.</p>
+            </div>
+
+            <div class="video-container">
+                <VIDEO controls src="SIMBACHAWENE MBINU, MIFUMO MIPYA INAHITAJIKA KUPAMBANA NA RUSHWA - Nukta TV (360p, h264).mp4" allowfullscreen></VIDEO>
+                <div class="video-title">SIMBACHAWENE MBINU, MIFUMO MIPYA INAHITAJIKA KUPAMBANA NA RUSHWA</div>
+            </div>
+        </section>
+
+        <footer>
+            <p><i class="fas fa-code"></i> Imeandaliwa na ICT Club (4D code-tech)| <i class="fas fa-calendar-alt"></i> 2025</p>
+            <p><em>"TOKOMEZA RUSHWA KUONGEZA MAENDELEO!!"</em></p>
+            <hr style="margin-bottom: 50px; border-color: rgba(255,255,255,0.2);">
+            <p>Created by <strong><b>4D code-tech</b></strong> from Kumgogo Secondary school powered by <strong style="font-style: italic;">Sir Paul</strong> our ICT technician </p>
+            <p style="margin-top: 20px;">&copy; 2025 Klabu ya PCCB & ICT Kumgogo. Haki zote zimehifadhiwa.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carousel functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.querySelector('.dots-container');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            let currentSlideIndex = 0; 
+
+            function showSlide(n) {
+                if (n >= slides.length) {
+                    currentSlideIndex = 0;
+                } else if (n < 0) {
+                    currentSlideIndex = slides.length - 1;
+                } else {
+                    currentSlideIndex = n;
+                }
+
+                slides.forEach(slide => {
+                    slide.style.display = 'none';
+                    slide.classList.remove('fading');
+                });
+
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    dot.classList.remove('active-dot');
+                    if (index === currentSlideIndex) {
+                        dot.classList.add('active-dot');
+                    }
+                });
+
+                slides[currentSlideIndex].style.display = 'block';
+                slides[currentSlideIndex].classList.add('fading');
+            }
+
+            function moveSlide(step) {
+                showSlide(currentSlideIndex + step);
+            }
+            
+            function createDots() {
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                moveSlide(-1); 
+            });
+
+            nextBtn.addEventListener('click', () => {
+                moveSlide(1); 
+            });
+
+            if (slides.length > 0) {
+                createDots();
+                showSlide(currentSlideIndex);
+
+                // AUTOMATIC SLIDE - Kila baada ya sekunde 5
+                setInterval(() => {
+                    moveSlide(1); 
+                }, 5000); 
+            }
+
+            // Background slideshow
+            const bgSlides = document.querySelectorAll('.bg-slide');
+            let currentBgIndex = 0;
+
+            function showBgSlide() {
+                bgSlides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                currentBgIndex = (currentBgIndex + 1) % bgSlides.length;
+                bgSlides[currentBgIndex].classList.add('active');
+            }
+
+            // Change background every 8 seconds
+            setInterval(showBgSlide, 8000);
+
+            // Random video selection for each section
+            const videoSections = [
+                {
+                    container: document.querySelector('#definition .video-container iframe'),
+                    videos: [
+                        'https://www.youtube.com/embed/J7XkZ0xKzqo', // PCCB video about corruption definition
+                        'https://www.youtube.com/embed/9hYlB8r9q2Q', // Corruption awareness video
+                        'https://www.youtube.com/embed/7XkZ0xKzqo'  // Legal framework video
+                    ]
+                },
+                {
+                    container: document.querySelector('#types .video-container iframe'),
+                    videos: [
+                        'https://www.youtube.com/embed/8hYlB8r9q2Q', // Types of corruption in Tanzania
+                        'https://www.youtube.com/embed/6hYlB8r9q2Q', // Grand vs petty corruption
+                        'https://www.youtube.com/embed/5hYlB8r9q2Q'  // Systemic corruption explained
+                    ]
+                },
+                {
+                    container: document.querySelector('#examples .video-container iframe'),
+                    videos: [
+                        'https://www.youtube.com/embed/4hYlB8r9q2Q', // Corruption in education sector
+                        'https://www.youtube.com/embed/3hYlB8r9q2Q', // Real examples of corruption
+                        'https://www.youtube.com/embed/2hYlB8r9q2Q'  // Case studies Tanzania
+                    ]
+                },
+                {
+                    container: document.querySelector('#effects .video-container iframe'),
+                    videos: [
+                        'https://www.youtube.com/embed/1hYlB8r9q2Q', // Effects of corruption on development
+                        'https://www.youtube.com/embed/0hYlB8r9q2Q', // Social impact of corruption
+                        'https://www.youtube.com/embed/9hYlB8r9q1Q'  // Economic consequences
+                    ]
+                },
+                {
+                    container: document.querySelector('#hatua .video-container iframe'),
+                    videos: [
+                        'https://www.youtube.com/embed/8hYlB8r9q1Q', // How to fight corruption
+                        'https://www.youtube.com/embed/7hYlB8r9q1Q', // Reporting corruption mechanisms
+                        'https://www.youtube.com/embed/6hYlB8r9q1Q'  // Building integrity culture
+                    ]
+                }
+            ];
+
+            // Set random videos for each section
+            videoSections.forEach(section => {
+                if (section.container && section.videos.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * section.videos.length);
+                    section.container.src = section.videos[randomIndex];
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website ya PCCB Shule ya Sekondari Kumgogo </title>
+    <meta name="description" content="Tovuti ya Klabu ya PCCB Shule ya Sekondari Kumgogo inayojihusisha na kuzuia na kupambana na rushwa">
+    <meta name="keywords" content="PCCB, Kumgogo, Mabamba, Rushwa, Uadilifu, Tanzania">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #9b59b6;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --light-text: #fff;
+            --bg-light: rgba(255, 255, 255, 0.92);
+            --bg-dark: rgba(44, 62, 80, 0.9);
+            --shadow: 0 8px 25px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+            /* Background image will be set by JavaScript */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .loader-spinner {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--light-text);
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            color: var(--light-text);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            background-image: url('https://picsum.photos/seed/leadershipmeeting/1920/500.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 62, 80, 0.85);
+            z-index: 1;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 32px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: normal;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            border: 4px solid var(--light-text);
+            transition: var(--transition);
+        }
+        
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+        /* CSS YAKO YA MWANZO (Logo Ndogo) */
+.logo-containe img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    border: 4px solid var(--light-text);
+    transition: var(--transition);
+    cursor: pointer; /* Muhimu kuonyesha inaweza kubonyezwa */
+}
+
+.logo-containe img:hover {
+    transform: scale(1.05);
+}
+
+/* ------------------------------------- */
+
+/* CSS YA MODAL (Pop-up) */
+
+/* Kontena Zima la Modal - Limetangazwa, linafunika skrini */
+.modal {
+    display: none; /* Inafichwa mwanzoni */
+    position: fixed; /* Baki sehemu moja hata ukiscroll */
+    z-index: 1000; /* Ikae juu ya kila kitu */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Background nyeusi, nusu uwazi */
+}
+
+/* Picha Ndani ya Modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* Weka upana wa picha */
+    max-width: 700px; /* Upana wa juu zaidi */
+    max-height: 90vh; /* Urefu wa juu zaidi (90% ya urefu wa skrini) */
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    object-fit: contain; /* Hakikisha picha nzima inaonekana ndani ya kontena */
+}
+
+/* Kitufe cha Kufunga (x) */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animation ya Kufungua */
+@keyframes zoom {
+    from {transform:scale(0)} 
+        to {transform:scale(1)}
+        }
+
+
+        /* Sidebar Navigation */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            background-image: url('https://picsum.photos/seed/darktexture/500/1200.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sidenav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            z-index: -1;
+        }
+
+        .sidenav a {
+            padding: 12px 8px 12px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #ddd;
+            display: block;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sidenav a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidenav a:hover {
+            color: var(--light-text);
+            background-color: rgba(255,255,255,0.1);
+            padding-left: 40px;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            color: var(--light-text);
+            z-index: 1;
+        }
+
+        /* Main Content */
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+            max-width: 1400px; /* Increased from 1200px */
+            margin: 0 auto;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--light-text);
+            padding: 12px 18px;
+            border: none;
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 999;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .openbtn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 998;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Content Sections */
+        section {
+            background-color: var(--bg-light);
+            margin: 30px auto; /* Changed from 30px 0 to center horizontally */
+            padding: 40px; /* Increased from 30px for more height */
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: fadeIn 0.8s ease-in-out;
+            width: 90%; /* Added width to make containers wider */
+            max-width: 1200px; /* Added max-width to prevent containers from being too wide */
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #kuhusu {
+            background-image: url('https://picsum.photos/seed/aboutus/1200/600.jpg');
+            background-size: cover;
+            margin-top: 1000px;
+            background-position: center;
+            color: var(--light-text);
+            text-shadow: 1px 1px 3px #000;
+            margin-top: 100px; /* Changed from 7000px to make it appear sooner */
+            opacity: 0; /* Initially hidden */
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        #kuhusu.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #kuhusu::before { 
+            content: ''; 
+            position: absolute; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background-color: rgba(44, 62, 80, 0.85); 
+            border-radius: 12px; 
+            z-index: -1;
+        }
+        
+        #kuhusu * { position: relative; z-index: 1; }
+
+        #shughuli {
+            background-image: url('https://picsum.photos/seed/activities/1200/600.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #shughuli::before { 
+            content: ''; 
+            position: absolute; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background-color: rgba(255,255,255,0.9); 
+            border-radius: 12px; 
+            z-index: -1;
+        }
+        
+        #shughuli * { position: relative; z-index: 1; }
+
+        #matokeo {
+            background-image: url('https://picsum.photos/seed/achievements/1200/600.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #matokeo::before { 
+            content: ''; 
+            position: absolute; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background-color: rgba(255,255,255,0.9); 
+            border-radius: 12px; 
+            z-index: -1;
+        }
+        
+        #matokeo * { position: relative; z-index: 1; }
+
+        #miradi {
+            background-image: url('https://picsum.photos/seed/projects/1200/600.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #miradi::before { 
+            content: ''; 
+            position: absolute; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background-color: rgba(255,255,255,0.9); 
+            border-radius: 12px; 
+            z-index: -1;
+        }
+        
+        #miradi * { position: relative; z-index: 1; }
+
+        section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 26px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        #kuhusu h2 { 
+            color: var(--light-text); 
+            border-bottom-color: var(--light-text); 
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            flex: 1;
+            min-width: 280px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+        
+        /* Statistics Section */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            height: 600px;
+        }
+
+        .mySlides { 
+            display: none; 
+            height: 100%;
+        }
+        
+        .mySlides img { 
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;
+            display: block; 
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 18px;
+            padding: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 18px;
+            margin-top: -22px;
+            color: var(--light-text);
+            font-weight: bold;
+            font-size: 22px;
+            transition: 0.6s ease;
+            border-radius: 0 5px 5px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+        
+        .next { right: 0; border-radius: 5px 0 0 5px; }
+        
+        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.9); }
+        
+        .fade { animation-name: fade; animation-duration: 1.5s; }
+        
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+        
+        /* Slideshow dots */
+        .dot-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        
+        .active, .dot:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Video Section */
+        .video-section { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+        
+        .video-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        
+        .video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-container video { width: 100%; display: block; }
+        
+        .video-title {
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .contact-info { 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+        }
+        
+        .contact-item { 
+            margin: 10px; 
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-item p { 
+            margin: 5px 0; 
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            font-size: 24px;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Membership Section */
+        #membership {
+            background-image: url('https://picsum.photos/seed/membership/1200/600.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #membership::before { 
+            content: ''; 
+            position: absolute; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background-color: rgba(255,255,255,0.9); 
+            border-radius: 12px; 
+            z-index: -1;
+        }
+        
+        #membership * { position: relative; z-index: 1; }
+        
+        .membership-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        
+        .join-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .join-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .google-signin-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .google-signin-btn:hover {
+            background-color: #3367d6;
+        }
+        
+        .google-signin-btn i {
+            margin-right: 10px;
+        }
+        
+        .members-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .members-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .members-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .member-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .member-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            flex: 1;
+        }
+        
+        .member-name {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .member-email {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .member-date {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .no-members {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+        
+        @media screen and (max-width: 768px) {
+            .info-cards, .video-section, .membership-container { flex-direction: column; }
+            .info-card, .video-container, .join-section, .members-section { width: 100%; }
+            h1 { font-size: 26px; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .stats-container { flex-direction: column; }
+            section { width: 95%; } /* Adjusted for mobile */
+        }
+        /* Styling ya Kitufe Kikuu */
+.stylish-button {
+    /* Ukubwa na Muonekano */
+    padding: 15px 30px; /* Nafasi ndani ya kitufe (juu/chini na kushoto/kulia) */
+    font-size: 18px; /* Ukubwa wa maandishi */
+    font-weight: bold; /* Maandishi mazito */
+    border: none; /* Kuondoa mpaka wa kawaida */
+    border-radius: 8px; /* Kona zilizopinda kidogo */
+    cursor: pointer; /* Kubadili kielekezi cha panya kuwa mkono */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Uhuishaji laini */
+
+    /* Rangi NzuriNafasi */
+    background-color: #beb52dff; /* Rangi ya Kijani Kibichi (Primary color) */
+    color: white; /* Rangi ya Maandishi */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kivuli kidogo chini ya kitufe */
+}
+
+/* 🟢 Hovering Style: Mtindo wakati panya iko juu ya kitufe */
+.stylish-button:hover {
+    background-color: #45a049; /* Rangi nyeusi zaidi ya kijani */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Kivuli kikubwa zaidi */
+}
+
+/* 🖱️ Clicking Style: Mtindo wakati kitufe kimebonyezwa */
+.stylish-button:active {
+    background-color: #3e8e41; /* Rangi nyeusi zaidi kwa wakati huu */
+    transform: translateY(2px); /* Kitufe kushuka chini kidogo (illusion ya kubonyezwa) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Kivuli kidogo sana */
+}
+
+        
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2>KARIBU KUMGOGO PCCB WEB PAGE</h2>
+            <P><img src="PCCB-LOGO.PNG"></P>
+        </div>
+    </div>
+
+    <header>
+        <h1>TAASISI YA KUZUIA NA KUPAMBANA NA RUSHWA (TAKUKURU)</h1>
+        <h2>SHULE YA SEKONDARI KUMGOGO</h2>
+        <p> S.L.P 173 KIBONDO, TANZANIA</p>
+        <div class="logo-container">
+            <img src="PCCB-LOGO.PNG" alt="PCCB Kumgogo Logo">
+        </div>
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
+        <a href="kuhusu_takukuru.html.html" onclick="closeNav()"><i class="fas fa-info-circle"></i>KUHUSU TAKUKURU</a>
+        <a href="EDUCATIONN.html" onclick="closeNav()"><i class="fas fa-tasks"></i>TAMBUA RUSHWA</a>
+        <a href="chati-nasi.html.html" onclick="closeNav()"><i class="fas fa-images"></i>CHATI NASI</a>
+        
+    </div>
+
+    <div id="main">
+        <span class="openbtn" onclick="openNav()">&#9776; MENU KUU</span> 
+        
+        <div style="margin-top: 400px;">
+            <section id="kuhusu">
+            <h2>Karibu Kwenye Jukwaa Letu la Uadilifu</h2>
+            <p>Tuko katika mstari wa mbele katika kujenga jamii inayojiheshimu na inayopinga rushwa kwa kila bei. Kama klabu ya PCCB ya Shule ya Sekondari Kumgogo na Kata ya Mabamba, tunachukua jukumu la kuwa chanzo cha mwanga na elimu kuhusu hatari za rushwa.</p>
+            <p>Lengo letu ni kufikia kijijini na shuleni, kuhamasisha vijana na wazee kwa pamoja kuwa mabalozi wa uadilifu. Tunafanya kazi kwa kuhakikisha kuwa kila mwananchi anaelewa jukumu lake la kujenga Tanzania isiyo na rushwa.</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="759">0</div>
+                    <div class="stat-label">Wanafunzi Waliopata Elimu</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Shule Zilizoshiriki</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="16">0</div>
+                    <div class="stat-label">Vijana Katika Mtandao</div>
+                </div>
+            </div>
+        </section>
+            
+        </div>
+
+        <section id="shughuli">
+            <h2>Shughuli Zetu za Kimsingi</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-graduation-cap"></i> Elimu na Uhamasishaji</div>
+                    <div class="card-content">
+                        <p>Tunaendesha semina, majadiliano, na mashindano ya mada yanayolenga kuongeza fahamu kuhusu rushwa na athari zake.</p>
+                        <ul>
+                            <li>Warsha za kujitolea</li>
+                            <li>Mashindano ya mada</li>
+                            <li>Maonyesho ya tamthilia</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-palette"></i> Sanaa na Tamthilia</div>
+                    <div class="card-content">
+                        <p>Tunatumia sanaa, muziki, na tamthilia kuwasiliana ujumbe wa kutoa rushwa kwa njia ya kuvutia na rahisi kueleweka.</p>
+                        <ul>
+                            <li>Ngoma za kuhamasisha</li>
+                            <li>Michoro ya ujumbe</li>
+                            <li>Tamthilia za michezo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-handshake"></i> Ushirikiano na Jamii</div>
+                    <div class="card-content">
+                        <p>Tunashirikiana na viongozi wa serikali za mitaa, vyama vya msingi, na wadau wengine kuweka misingi thabiti ya kupambana na rushwa.</p>
+                        <ul>
+                            <li>Maafisa wa serikali</li>
+                            <li>Viongozi wa dini</li>
+                            <li>Wadau wa jamii</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="picha">
+            <h2>Picha za Matukio na Shughuli</h2>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="tokomeza rushwa ya ngono.jpg" alt="Warsha ya PCCB">
+                    <div class="text">Mafunzo ya Uongozi Bila Rushwa</div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="huzuia malengo.jpg" alt="Mashindano ya Mada">
+                    <div class="text">Shindano la Kitaifa la Mada</div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="rushwa ni dhambi.jpg" alt="Kampeni ya Uhamasishaji">
+                    <div class="text">Kampeni ya Kuhamasisha Jamii</div>
+                </div>
+              
+            </div>
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <section id="video">
+            <h2>Video za Kuelimisha</h2>
+            <div class="video-section">
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls src="Rais Samia ataka Watanzania kuungana kudhibiti rushwa - Mama Yuko Kazini (720p, h264).mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></video>
+                    </div>
+                    <div class="video-title">Tamko la Raisi juu ya Rushwa</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls src="SIMBACHAWENE MBINU, MIFUMO MIPYA INAHITAJIKA KUPAMBANA NA RUSHWA - Nukta TV (360p, h264).mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></video>
+                    </div>
+                    <div class="video-title">Takwimu za CAG kuhusu rushwa</div>
+                </div>
+            </div>
+            <button class="stylish-button"><a href="https://www.youtube.com/results?search_query=HOTUBA+NA+MATUKIO+YOTE+YANAYOHUSIANA+NA+RUSHWA">BONYEZA HAPA KWA VIDEO ZAIDI</a></button>
+        </section>
+
+        <section id="matokeo">
+            <h2>Mafanikio na Tathmini</h2>
+            <p>Kwa mweledi na uamsho, tumefanikiwa kufikia mafanikio yafuatayo:</p>
+            <ul>
+                <li>Kufikia zaidi ya wanafunzi 800 na wakazi 50 kwa elimu ya kupambana na rushwa.</li>
+                <li>Kuendesha mashindano ya mada yaliyoshirikisha shule 3 za jirani.</li>
+                <li>Kuunda mtandao wa vijana 150 wanaojihusisha na masuala ya uadilifu.</li>
+                <li>Tumerahisisha utoaji wa taarifa za rushwa ikiwemo kwa ushahidi wa picha, video na nyaraka(PDF).</li>
+            </ul>
+        </section>
+
+        <section id="miradi">
+            <h2>Miradi Inayoendelea</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-school"></i> Mradi wa "Shule Safi"</div>
+                    <div class="card-content">
+                        <p>Kuhakikisha shughuli zote za kiutawala na kifedha shuleni zinafanyika kwa uwazi na uadilifu.</p>
+                        <p><strong>Maendeleo:</strong> Tumeshafanya mafunzo ya awali kwa walimu na wafanyakazi.</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-bullhorn"></i> Jukwaa la Kuripoti Rushwa</div>
+                    <div class="card-content">
+                        <p>Kuunda mfumo wa kuripoti tuhuma za rushwa kwa njia ya salama na ya siri kwa wanafunzi na wakazi.</p>
+                        <p><strong>Maendeleo:</strong> Tuko katika hatua ya maandalizi ya mfumo.</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="card-header"><i class="fas fa-newspaper"></i> Ushirikiano na Vyombo vya Habari</div>
+                    <div class="card-content">
+                        <p>Kutumia mtandao na vipeperushi kupeperusha ujumbe wetu na kufanya mahojiano ya kuelimisha jamii.</p>
+                        <p><strong>Maendeleo:</strong> Tumetengeneza website ya TAKUKURU Kumgogo Sekondari.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="membership">
+            <h2>Uanachama wa Klabu ya PCCB</h2>
+            <div class="membership-container">
+                <div class="join-section">
+                    <h3><i class="fas fa-user-plus"></i> Jiunge Nasi Leo</h3>
+                    <p>Jiunge na klabu yetu ya kupambana na rushwa na kuwa mchangiaji wa mabadiliko chanya katika jamii yetu.</p>
+                    <p>Kwa kujiunga, utapata:</p>
+                    <ul>
+                        <li>Mafunzo ya mara kwa mara kuhusu uadilifu</li>
+                        <li>Nafasi ya kushiriki katika miradi yetu</li>
+                        <li>Cheti cha utambulisho wa mwanachama</li>
+                        <li>Fursa ya kuungana na vijana wengine wenye maono</li>
+                    </ul>
+                </div> 
+                <div class="members-section">
+                    <h3><i class="fas fa-users"></i> Wanachama Wetu</h3>
+                    <div class="members-list" id="membersList">
+                        <div class="no-members">
+                            <p>Wanafunzi wengi katika Shule ya Sekondari Kumgogo wamejiunga nasi katika klabu ya TAKUKURU. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <footer id="contact">
+            <h3>Tupatie Ujumbe Wako</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><strong>Barua pepe:</strong> msafiribaruti157@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p><strong>Simu:</strong> +255767111205</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p><strong>Anwani:</strong> S.L.P 173, Kumgogo, Mabamba, Kibondo.</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <hr>
+            <p>Created by <strong><b>4D code-tech</b></strong> from Kumgogo Secondary school powered by <strong style="font-style: italic;">Sir Paul</strong> our ICT technician</p>
+           
+            <div class="logo-containe">
+    <a href="#" onclick="openModal('OUR-LOGO.png'); return false;">
+        <img src="OUR-LOGO.png" alt="our-Logo">
+    </a>
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <img class="modal-content" id="img01">
+</div>
+             <p style="margin-top: 20px;">&copy; 2025 Klabu ya PCCB & ICT Kumgogo. Haki zote zimehifadhiwa.</p>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Pata elementi za modal
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+
+// Kazi ya kufungua modal
+function openModal(imageSrc) {
+  // Weka picha kubwa kwenye modal
+  modalImg.src = imageSrc;
+  
+  // Onyesha modal (Badilisha display: none kwenda display: block)
+  modal.style.display = "block";
+}
+
+// Kazi ya kufunga modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Funga modal mtumiaji anapobonyeza mahali popote nje ya picha (Optional)
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Random Background Image ---
+            const backgrounds = [
+                'https://picsum.photos/seed/mainbg1/1920/1080.jpg',
+                'https://picsum.photos/seed/mainbg2/1920/1080.jpg',
+                'https://picsum.photos/seed/mainbg3/1920/1080.jpg',
+                'https://picsum.photos/seed/mainbg4/1920/1080.jpg',
+                'https://picsum.photos/seed/mainbg5/1920/1080.jpg'
+            ];
+            const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            document.body.style.backgroundImage = `url('${randomBg}')`;
+
+            // --- 2. Loader ---
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.getElementById('loader').classList.add('hidden');
+                }, 1000); // Hide loader after 1 second
+            });
+
+            // --- 3. Scroll to Top Button ---
+            const scrollTopBtn = document.getElementById('scrollTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+                
+                // --- Show first container when scrolling ---
+                const kuhusuSection = document.getElementById('kuhusu');
+                if (window.pageYOffset > 50) {
+                    kuhusuSection.classList.add('visible');
+                }
+            });
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- 4. Slideshow ---
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+            
+            // Auto-advance slideshow
+            setInterval(function() {
+                plusSlides(1);
+            }, 5000); // Change image every 5 seconds
+
+            // --- 5. Statistics Counter ---
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // The lower the slower
+
+            const countUp = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            // Using Intersection Observer to trigger counter when visible
+            const statsSection = document.querySelector('.stats-container');
+            const observerOptions = {
+                threshold: 0.5
+            };
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        countUp();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            observer.observe(statsSection);
+
+            // --- 6. Contact Form ---
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name === '' || email === '' || message === '') {
+                    showMessage('Tafadhali jaza sehemu zote.', 'error');
+                } else {
+                    // Simulate form submission
+                    showMessage('Asante! Ujumbe wako umetumwa. Tutakujibu hivi karibuni.', 'success');
+                    contactForm.reset(); // Reset form fields
+                }
+            });
+
+            function showMessage(msg, type) {
+                formMessage.textContent = msg;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000); // Hide message after 5 seconds
+            }
+            
+            // --- 7. Membership Section ---
+            // Initialize members list from localStorage
+            let members = JSON.parse(localStorage.getItem('pccbMembers')) || [];
+            displayMembers();
+            
+            function signInWithGoogle() {
+                // Simulate Google Sign-In (in a real app, this would use Google's OAuth API)
+                // For demo purposes, we'll create a mock user
+                const mockUsers = [
+                    { name: 'Aisha Mwangi', email: 'aisha.mwangi@gmail.com', avatar: 'https://picsum.photos/seed/user1/100/100.jpg' },
+                    { name: 'John Smith', email: 'john.smith@gmail.com', avatar: 'https://picsum.photos/seed/user2/100/100.jpg' },
+                    { name: 'Fatuma Hassan', email: 'fatuma.hassan@gmail.com', avatar: 'https://picsum.photos/seed/user3/100/100.jpg' },
+                    { name: 'Michael Johnson', email: 'michael.johnson@gmail.com', avatar: 'https://picsum.photos/seed/user4/100/100.jpg' },
+                    { name: 'Grace Kimario', email: 'grace.kimario@gmail.com', avatar: 'https://picsum.photos/seed/user5/100/100.jpg' }
+                ];
+                
+                // Select a random user for demo
+                const randomUser = mockUsers[Math.floor(Math.random() * mockUsers.length)];
+                
+                // Check if user is already a member
+                const isMember = members.some(member => member.email === randomUser.email);
+                
+                if (isMember) {
+                    alert('Umejiunga tayari na klabu yetu!');
+                    return;
+                }
+                
+                // Add current date
+                const today = new Date();
+                const dateStr = today.toLocaleDateString('sw-TZ');
+                
+                // Add member to the list
+                const newMember = {
+                    ...randomUser,
+                    joinDate: dateStr
+                };
+                
+                members.push(newMember);
+                
+                // Save to localStorage
+                localStorage.setItem('pccbMembers', JSON.stringify(members));
+                
+                // Update the display
+                displayMembers();
+                
+                // Show success message
+                alert('Hongera! Umejiunga na klabu yetu ya PCCB.');
+            }
+            
+            function displayMembers() {
+                const membersList = document.getElementById('membersList');
+                
+                if (members.length === 0) {
+                    membersList.innerHTML = '<div class="no-members"><p>Hakuna wanachama waliojiunga bado. Kuwa wa kwanza kujiunga!</p></div>';
+                    return;
+                }
+                
+                membersList.innerHTML = '';
+                
+                members.forEach(member => {
+                    const memberItem = document.createElement('div');
+                    memberItem.className = 'member-item';
+                    
+                    memberItem.innerHTML = `
+                        <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
+                        <div class="member-info">
+                            <div class="member-name">${member.name}</div>
+                            <div class="member-email">${member.email}</div>
+                            <div class="member-date">Alijiunga: ${member.joinDate}</div>
+                        </div>
+                    `;
+                    
+                    membersList.appendChild(memberItem);
+                });
+            }
+        });
+
+        // --- 8. Side Navigation (Original functions, slightly modified) ---
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+            document.getElementById("main").style.marginLeft = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script> 
+</body>
+</html>

@@ -1,0 +1,3519 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Ripoti ufisadi kwa klabu ya TAKUKURU Shule ya sekondari Kumgogo  kwa usalama na faragha kamili">
+    <meta name="keywords" content="TAKUKURU, PCCB, ufisadi, rushwa, ripoti, Kumgogo">
+    <meta name="author" content="Shirika la Kuzuia na Kupambana na Rushwa">
+    <title>Tuzungumze na TAKUKURU Shule ya sekondari Kumgogo  - Ripoti Ufisadi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇹🇿</text></svg>">
+    
+    <style>
+        /* CSS Variables */
+        .openbt {
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            position: fixed;
+            top: 60px;
+            left: 30px;
+            z-index: 999;
+            background-color: #611c58;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .openbt:hover {
+            background-color: #141947;
+            transform: scale(1.05);
+        }
+        :root {
+            --pccb-blue: #0A3D62;
+            --accent-gold: #FFC312;
+            --background-light: #f7f7f7;
+            --background-deep: #082d47;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-color: #ddd;
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --success-green: #2ecc71;
+            --error-red: #e74c3c;
+            --warning-orange: #f39c12;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background-deep) 0%, var(--pccb-blue) 100%); 
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-image: url('https://picsum.photos/seed/pccb-tanzania/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+
+        .main-wrapper {
+            background-color: rgba(247, 247, 247, 0.95);
+            border-radius: 20px;
+            box-shadow: var(--shadow-dark);
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+            animation: slideUp 0.6s ease-out;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .chat-header {
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/pccb-logo/100/100.jpg');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .chat-header .logo {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 1.2em;
+            font-weight: 800;
+            color: var(--accent-gold);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .chat-header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chat-header .subtitle {
+            font-size: 0.9em;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Container */
+        .chat-container {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background-color: #e6f7ff;
+            border: 1px solid #cceeff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: var(--pccb-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-gold);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(20px, -20px);
+        }
+
+        .contact-info h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-info .hotline {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info .hotline i {
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-info a {
+            color: var(--pccb-blue);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: var(--background-deep);
+        }
+
+        /* Report Delivery Info */
+        .delivery-info {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #155724;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-info::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--success-green);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(20px, -20px);
+        }
+
+        .delivery-info h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .delivery-info h3 i {
+            margin-right: 10px;
+            color: var(--success-green);
+        }
+
+        .delivery-info ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .delivery-info li {
+            margin-bottom: 5px;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .tab {
+            flex-grow: 1;
+            padding: 12px 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #777;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab:hover {
+            color: var(--pccb-blue);
+        }
+
+        .tab.active {
+            color: var(--pccb-blue);
+        }
+
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--pccb-blue), var(--background-deep));
+            color: var(--text-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .stat-card i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .stat-card h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .chart-container {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .chart-container h3 {
+            color: var(--pccb-blue);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .chart {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .bar {
+            width: 30px;
+            background: linear-gradient(to top, var(--pccb-blue), var(--accent-gold));
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            opacity: 0.8;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            color: var(--pccb-blue);
+        }
+
+        /* Community Reports Styles */
+        .community-reports {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .report-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent-gold);
+        }
+
+        .report-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .report-type {
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .report-date {
+            color: #777;
+            font-size: 0.8em;
+        }
+
+        .report-content {
+            margin-bottom: 10px;
+        }
+
+        .report-location {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .report-location i {
+            margin-right: 5px;
+            color: var(--pccb-blue);
+        }
+
+        .report-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .report-status.pending {
+            background-color: #fff3cd;
+            color: var(--warning-orange);
+        }
+
+        .report-status.processed {
+            background-color: #d4edda;
+            color: var(--success-green);
+        }
+
+        .report-status.investigating {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .report-status.replied {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .privacy-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(10, 61, 98, 0.1);
+            color: var(--pccb-blue);
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 0.8em;
+        }
+
+        /* Privacy Note */
+        .privacy-note {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ffeeba;
+            font-size: 0.9em;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: var(--shadow-light);
+        }
+
+        .privacy-note i {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: var(--warning-orange);
+        }
+
+        .privacy-note strong {
+            color: var(--error-red);
+        }
+
+        /* Form Styles */
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #999;
+            pointer-events: none;
+            transition: var(--transition);
+            font-size: 1em;
+            background-color: var(--background-light);
+            padding: 0 5px;
+            z-index: 1;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: var(--transition);
+            background-color: var(--background-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--pccb-blue);
+            box-shadow: 0 0 5px rgba(10, 61, 98, 0.2);
+        }
+
+        /* Floating Label Effect */
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label,
+        .form-group select:not([value=""]) + label,
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group select:focus + label,
+        .form-group.filled label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.8em;
+            color: var(--pccb-blue);
+            font-weight: 600;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Custom Select Arrow */
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .select-arrow {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #777;
+            pointer-events: none;
+        }
+
+        /* Error Messages */
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--error-red);
+        }
+
+        /* File Upload */
+        .file-upload {
+            margin-bottom: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload label {
+            display: block;
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            border: 2px dashed transparent;
+        }
+
+        .file-upload label:hover {
+            background-color: var(--background-deep);
+            border-color: var(--accent-gold);
+        }
+
+        .file-upload i {
+            margin-right: 10px;
+        }
+
+        .file-name {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: var(--success-green);
+            display: flex;
+            align-items: center;
+        }
+
+        .file-name i {
+            margin-right: 5px;
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            padding: 10px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .checkbox-group:hover {
+            background-color: rgba(10, 61, 98, 0.05);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--pccb-blue);
+        }
+
+        /* Button Styles */
+        button[type="submit"],
+        button[type="button"] {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-gold);
+            color: var(--pccb-blue);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            background-color: #ffb700;
+            box-shadow: var(--shadow-light);
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            color: #666;
+        }
+
+        /* Secondary Button */
+        .btn-secondary {
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--background-deep);
+        }
+
+        /* Loader inside button */
+        .button-loader {
+            display: none;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--pccb-blue);
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading .button-text {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .loading .button-loader {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Response Message */
+        #responseMessage {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            color: var(--text-light);
+            font-weight: 600;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, bottom 0.4s, visibility 0.4s;
+            box-shadow: var(--shadow-dark);
+            max-width: 90%;
+            text-align: center;
+        }
+
+        #responseMessage.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 30px;
+        }
+
+        #responseMessage.success {
+            background-color: var(--success-green);
+        }
+
+        #responseMessage.error {
+            background-color: var(--error-red);
+        }
+
+        /* Loader (Full Screen) */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1050;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader::after {
+            content: "";
+            border: 8px solid var(--background-light);
+            border-radius: 50%;
+            border-top: 8px solid var(--accent-gold);
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 10px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--success-green);
+            transition: width 0.4s ease;
+        }
+
+        /* Report Tracking List */
+        .recent-reports {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .recent-reports h3 {
+            font-size: 1.1em;
+            color: var(--pccb-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .recent-reports h3 i {
+            margin-right: 8px;
+        }
+
+        .report-item {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-left: 5px solid var(--accent-gold);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--pccb-blue);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(10px, -10px);
+        }
+
+        .report-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .report-item strong {
+            display: block;
+            font-size: 1em;
+            color: var(--pccb-blue);
+        }
+
+        .report-item p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+
+        .report-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .report-status.pending {
+            background-color: var(--warning-bg);
+            color: var(--warning-orange);
+        }
+
+        .report-status.processed {
+            background-color: var(--success-bg);
+            color: var(--success-green);
+        }
+
+        .report-status.investigating {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .report-status.replied {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background-deep);
+            color: var(--text-light);
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.8em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/pccb-pattern/100/100.jpg');
+            background-size: 20px 20px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        footer .club-info {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-gold);
+            color: var(--pccb-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: var(--shadow-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            background-color: #ffb700;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--background-deep);
+            color: var(--text-light);
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8em;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Report Confirmation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--background-light);
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: var(--shadow-dark);
+            animation: modalopen 0.4s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: scale(0.8);}
+            to {opacity: 1; transform: scale(1);}
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            color: var(--pccb-blue);
+            font-size: 1.3em;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--error-red);
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .modal-footer button {
+            flex: 1;
+        }
+
+        /* Jamii (Community) Styles */
+        .jamii-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .jamii-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .jamii-header h2 {
+            color: var(--pccb-blue);
+            font-size: 1.5em;
+        }
+
+        .jamii-header button {
+            width: auto;
+            padding: 10px 15px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .jamii-header button i {
+            margin-right: 5px;
+        }
+
+        .story-form {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .story-form.active {
+            display: block;
+        }
+
+        .stories-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .story-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .story-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--pccb-blue);
+        }
+
+        .story-date {
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .story-content {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .story-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            background-color: rgba(10, 61, 98, 0.1);
+        }
+
+        .action-btn.liked {
+            color: var(--error-red);
+        }
+
+        .action-btn.disliked {
+            color: var(--warning-orange);
+        }
+
+        .story-replies {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .reply {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .reply-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .reply-content {
+            flex-grow: 1;
+        }
+
+        .reply-author {
+            font-weight: 600;
+            color: var(--pccb-blue);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .reply-text {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .reply-date {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .reply-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .reply-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9em;
+        }
+
+        .reply-input:focus {
+            border-color: var(--pccb-blue);
+        }
+
+        .reply-btn {
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .reply-btn:hover {
+            background-color: var(--background-deep);
+        }
+
+        .show-replies-btn {
+            background: none;
+            border: none;
+            color: var(--pccb-blue);
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .show-replies-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Status Update Form */
+        .status-update-form {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .status-update-form.active {
+            display: block;
+        }
+
+        .status-update-form h3 {
+            color: var(--pccb-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-update-form h3 i {
+            margin-right: 10px;
+        }
+
+        /* Auto Refresh Indicator */
+        .auto-refresh {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .auto-refresh i {
+            margin-right: 5px;
+            animation: spin 2s linear infinite;
+        }
+
+        .auto-refresh.active {
+            color: var(--success-green);
+        }
+
+        /* Server Section Styles */
+        .server-login {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-light);
+            border-radius: 10px;
+            box-shadow: var(--shadow-dark);
+        }
+
+        .server-login h2 {
+            color: var(--pccb-blue);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .server-dashboard {
+            display: none;
+        }
+
+        .server-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .server-header h2 {
+            color: var(--pccb-blue);
+        }
+
+        .server-logout {
+            background-color: var(--error-red);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .server-logout:hover {
+            background-color: #c0392b;
+        }
+
+        .server-reports {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .server-report-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .server-report-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .server-report-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .server-report-id {
+            font-weight: 600;
+            color: var(--pccb-blue);
+        }
+
+        .server-report-date {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .server-report-content {
+            margin-bottom: 10px;
+        }
+
+        .server-report-location {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .server-report-location i {
+            margin-right: 5px;
+            color: var(--pccb-blue);
+        }
+
+        .server-report-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .server-report-status.pending {
+            background-color: #fff3cd;
+            color: var(--warning-orange);
+        }
+
+        .server-report-status.processed {
+            background-color: #d4edda;
+            color: var(--success-green);
+        }
+
+        .server-report-status.investigating {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .server-report-status.replied {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .server-reply-form {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .server-reply-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .server-reply-textarea:focus {
+            border-color: var(--pccb-blue);
+            outline: none;
+        }
+
+        .server-reply-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .server-reply-btn {
+            background-color: var(--pccb-blue);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .server-reply-btn:hover {
+            background-color: var(--background-deep);
+        }
+
+        .server-cancel-btn {
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .server-cancel-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .server-reply-display {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            border-left: 3px solid var(--pccb-blue);
+        }
+
+        .server-reply-display p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .server-reply-display .reply-date {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .password-change-form {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow-light);
+            margin-top: 20px;
+        }
+
+        .password-change-form h3 {
+            color: var(--pccb-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-change-form h3 i {
+            margin-right: 10px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .main-wrapper {
+                min-height: auto;
+                border-radius: 0;
+            }
+            .chat-header h1 {
+                font-size: 1.5em;
+            }
+            .chat-header .logo {
+                display: none;
+            }
+            .fab {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 95%;
+            }
+            .jamii-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .jamii-header button {
+                width: 100%;
+            }
+            .server-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .server-logout {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+     <a href="Home-page.html.html"><span class="openbt" onclick="openNav()">BACK</span></a>
+    
+    <div class="main-wrapper">
+        <header class="chat-header">
+            <div class="logo">PCCB</div>
+            <h1>Tuzungumze na klabu ya TAKUKURU Kumgogo </h1>
+            <p class="subtitle">Taasisi ya Kuzuia na Kupambana na Rushwa (PCCB)</p>
+        </header>
+
+        <main class="chat-container">
+            
+            <section class="contact-info">
+                <h2>Ripoti Ufisadi Haraka:</h2>
+                <div class="hotline">
+                    <i class="fas fa-envelope"></i> <a href="mailto:msafiribaruti157@gmail.com">PCCB KUMGOGO</a>
+                </div>
+                <p>Simu: +255767111205<a href="tel: +255767111205"></a></p>
+            </section>
+
+            <section class="delivery-info">
+                <h3><i class="fas fa-shield-alt"></i> Njia za Kuwasiliana na PCCB</h3>
+                <ul>
+                    <li><strong>Email Moja kwa Moja:</strong> Ripoti yako itatumwa moja kwa moja kwa PCCB</li>
+                    <li><strong>Uhifadhi wa Ndani:</strong> Ripoti inahifadhiwa kwenye kifaa chako</li>
+                    <li><strong>Namba ya Kufuatilia:</strong> Utapokea namba ya kufuatilia ripoti</li>
+                    <li><strong>Cheti cha Ripoti:</strong> Unaweza kupakua cheti cha uthibitisho</li>
+                </ul>
+            </section>
+
+            <nav class="tabs">
+                <div class="tab active" data-tab="report-form" role="button" tabindex="0">Ripoti Mpya</div>
+                <div class="tab" data-tab="dashboard" role="button" tabindex="0">Dashboard</div>
+                <div class="tab" data-tab="community-reports" role="button" tabindex="0">Ripoti za Jamii</div>
+                <div class="tab" data-tab="jamii" role="button" tabindex="0">Chati na Jamii</div>
+                <div class="tab" data-tab="track-report" role="button" tabindex="0">Fuata Ripoti</div>
+                <div class="tab" data-tab="server" role="button" tabindex="0">SERVER</div>
+            </nav>
+
+            <section class="tab-content active" id="report-form">
+                <div class="privacy-note">
+                    <i class="fas fa-lock"></i> 
+                    <div>
+                        <strong>FARAGHA YAKO NI KIPAUMBELE!</strong> 
+                        Namba yako ya simu haitaonyeshwa hadharani. Itatumika kwa <strong>ufuataliaji wa siri pekee</strong> na maafisa wa TAKUKURU.
+                    </div>
+                </div>
+
+                <form id="pccbChatForm" autocomplete="off" novalidate>
+                    <div class="form-group">
+                        <select id="reportType" name="reportType" required aria-required="true">
+                            <option value="" disabled selected>Aina ya Ripoti</option>
+                            <option value="bribe">Rushwa (Kutoa/Upokeaji Rushwa)</option>
+                            <option value="embezzlement">Udanganyaji wa Fedha</option>
+                            <option value="abuse">Matumizi Mabaya ya Madaraka</option>
+                            <option value="nepotism">Upendeleo</option>
+                            <option value="procurement">Udanganyaji wa Mnada</option>
+                            <option value="other">Nyinginezo</option>
+                        </select>
+                        <label for="reportType">Aina ya Ripoti</label>
+                        <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                        <div class="error-message">Tafadhali chagua aina ya ripoti</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="commenterName" name="commenterName" placeholder=" " />
+                        <label for="commenterName">Jina Lako / Utambulisho (Si lazima)</label>
+                        <div class="error-message">Jina linahitajika</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder=" " 
+                               required 
+                               pattern="^\+255[67][0-9]{8}$"
+                               title="Tafadhali weka namba halali ya Tanzania inayoanza na +2556 au +2557..."
+                               maxlength="13"
+                               aria-required="true"/>
+                        <label for="phoneNumber">Namba ya Simu (Kwa Ufuatiliaji wa Siri)</label>
+                        <div class="error-message">Tafadhali weka namba ya simu halali ya Tanzania</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="location" name="location" placeholder=" " required aria-required="true" />
+                        <label for="location">Mahali Palipotokea Tukio</label>
+                        <div class="error-message">Tafadhali weka mahali palipotokea tukio</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="involvedPersons" name="involvedPersons" placeholder=" " required aria-required="true" />
+                        <label for="involvedPersons">Watu Waliohusika ( Majina na Vyeo)</label>
+                        <div class="error-message">Tafadhali weka majina ya watu waliuhusika</div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="commentText" name="commentText" placeholder=" " required aria-required="true"></textarea>
+                        <label for="commentText">Eleza tukio la ufisadi kwa undani (Nani, wapi, lini, ushahidi...)</label>
+                        <div class="error-message">Tafadhali eleza tukio kwa undani</div>
+                    </div>
+
+                    <div class="file-upload">
+                        <input type="file" id="evidence" name="evidence" accept="image/*,application/pdf,.doc,.docx" />
+                        <label for="evidence">
+                            <i class="fas fa-cloud-upload-alt"></i> Weka Ushahidi (Picha, PDF, Doc)
+                        </label>
+                        <div class="file-name" id="file-name"></div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="anonymous" name="anonymous" />
+                        <label for="anonymous">Nataka kuripoti bila kutaja jina langu</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agreement" name="agreement" required aria-required="true" />
+                        <label for="agreement">Nakubali kuwa maelezo yangu ni ya kweli na naweza kuitwa kwa ushahidi</label>
+                    </div>
+
+                    <div class="progress-container" id="progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" aria-label="Tuma ripoti kwa TAKUKURU">
+                        <span class="button-text">TUMA RIPOTI KWA TAKUKURU</span>
+                        <span class="button-loader"></span>
+                    </button>
+                </form>
+            </section>
+
+            <section class="tab-content" id="dashboard">
+                <div class="auto-refresh" id="auto-refresh">
+                    <i class="fas fa-sync-alt"></i> 
+                    <span id="refresh-text">Inasasisha kila sekunde 30...</span>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3 id="total-reports">0</h3>
+                        <p>Jumla ya Ripoti</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3 id="pending-reports">0</h3>
+                        <p>Ripoti Zinasubiri</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-search"></i>
+                        <h3 id="investigating-reports">0</h3>
+                        <p>Ripoti Zinaendelea</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 id="processed-reports">0</h3>
+                        <p>Ripoti Zimekamilika</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-reply"></i>
+                        <h3 id="replied-reports">0</h3>
+                        <p>Ripoti Zimejibiwa</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-day"></i>
+                        <h3 id="today-reports">0</h3>
+                        <p>Ripoti za Leo</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Ripoti za Siku 7 Zilizopita</h3>
+                    <div class="chart" id="weekly-chart">
+                        <!-- Chart bars will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Aina za Ripoti</h3>
+                    <div class="chart" id="type-chart">
+                        <!-- Chart bars will be generated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-content" id="community-reports">
+                <div class="privacy-note">
+                    <i class="fas fa-user-shield"></i> 
+                    <div>
+                        <strong>ULINZI WA FARAGHA!</strong> 
+                        Ripoti zote zimefanywa kuwa za siri kwa kutoondoa maelezo yanayoweza kumtambua mripoti. Taarifa hizi ni kwa madhumuni ya kuelimisha jamii tu.
+                    </div>
+                </div>
+
+                <div class="community-reports" id="community-reports-list">
+                    <!-- Community reports will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <section class="tab-content" id="jamii">
+                <div class="jamii-container">
+                    <div class="jamii-header">
+                        <h2><i class="fas fa-users"></i> Hadithi za Jamii</h2>
+                        <button id="add-story-btn" type="button">
+                            <i class="fas fa-plus-circle"></i> Ongeza Hadithi
+                        </button>
+                    </div>
+
+                    <div class="story-form" id="story-form">
+                        <div class="form-group">
+                            <input type="text" id="story-author" name="story-author" placeholder=" " />
+                            <label for="story-author">Jina Lako</label>
+                            <div class="error-message">Tafadhali weka jina lako</div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="story-content" name="story-content" placeholder=" " required></textarea>
+                            <label for="story-content">Andika hadithi yako hapa...</label>
+                            <div class="error-message">Tafadhali andika hadithi yako</div>
+                        </div>
+
+                        <button type="button" id="submit-story-btn">
+                            <span class="button-text">TUMA HADITHI</span>
+                            <span class="button-loader"></span>
+                        </button>
+                    </div>
+
+                    <div class="stories-container" id="stories-container">
+                        <!-- Stories will be generated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-content" id="track-report">
+                <div class="form-group">
+                    <input type="text" id="trackingNumber" name="trackingNumber" placeholder=" " />
+                    <label for="trackingNumber">Namba ya Kufuatilia Ripoti</label>
+                    <div class="error-message">Tafadhali weka namba ya kufuatilia</div>
+                </div>
+                
+                <button type="button" id="track-btn" aria-label="Fuata ripoti">
+                    <span class="button-text">FUATA RIPOTI</span>
+                    <span class="button-loader"></span>
+                </button>
+
+                <div class="recent-reports" id="recent-reports" style="display: none;">
+                    <h3><i class="fas fa-list-alt"></i> Ripoti Zako za Karibuni</h3>
+                    <div id="reports-list"></div>
+                </div>
+            </section>
+
+            <section class="tab-content" id="server">
+                <div class="server-login" id="server-login">
+                    <h2><i class="fas fa-server"></i> SERVER LOGIN</h2>
+                    <form id="server-login-form">
+                        <div class="form-group">
+                            <input type="email" id="server-email" name="server-email" placeholder=" " required />
+                            <label for="server-email">Barua Pepe</label>
+                            <div class="error-message">Tafadhali weka barua pepe halali</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="server-password" name="server-password" placeholder=" " required />
+                            <label for="server-password">Nenosiri la Barua Pepe</label>
+                            <div class="error-message">Tafadhali weka nenosiri</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="server-access-code" name="server-access-code" placeholder=" " required />
+                            <label for="server-access-code">Msimbo wa Ufikiaji</label>
+                            <div class="error-message">Tafadhali weka msimbo wa ufikiaji</div>
+                        </div>
+                        <button type="submit" id="server-login-btn">
+                            <span class="button-text">INGIA</span>
+                            <span class="button-loader"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="server-dashboard" id="server-dashboard">
+                    <div class="server-header">
+                        <h2><i class="fas fa-server"></i> SERVER DASHBOARD</h2>
+                        <button class="server-logout" id="server-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> TOKA
+                        </button>
+                    </div>
+
+                    <div class="server-reports" id="server-reports">
+                        <!-- Server reports will be generated by JavaScript -->
+                    </div>
+
+                    <div class="password-change-form">
+                        <h3><i class="fas fa-key"></i> Badilisha Nenosiri</h3>
+                        <form id="password-change-form">
+                            <div class="form-group">
+                                <input type="password" id="current-password" name="current-password" placeholder=" " required />
+                                <label for="current-password">Nenosiri la Sasa</label>
+                                <div class="error-message">Tafadhali weka nenosiri lako la sasa</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="new-password" name="new-password" placeholder=" " required />
+                                <label for="new-password">Nenosiri Mpya</label>
+                                <div class="error-message">Tafadhali weka nenosiri mpya</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required />
+                                <label for="confirm-password">Thibitisha Nenosiri Mpya</label>
+                                <div class="error-message">Nenosiri hazilingani</div>
+                            </div>
+                            <button type="submit" id="change-password-btn">
+                                <span class="button-text">BADILISHA NENOSIRI</span>
+                                <span class="button-loader"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="club-info">Imeandaliwa na Klabu ya ICT chini ya usimamizi wa SIR PAUL wa Kumgogo sec school 2025 - "Ujasiri Wetu ni Uaminifu"</p>
+            <p>&copy; 2025 Haki Zote Zimehifadhiwa.</p>
+        </footer>
+    </div>
+
+    <div class="fab tooltip">
+        <i class="fas fa-envelope"></i>
+        <span class="tooltiptext">Tuma email: msafiribaruti157@gmail.com </span>
+    </div>
+
+    <div id="responseMessage" role="alert" aria-live="polite"></div>
+    
+    <div class="loader" id="loader" role="status" aria-label="Loading"></div>
+
+    <!-- Report Confirmation Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-check-circle" style="color: var(--success-green);"></i> Ripoti Imetumwa!</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Namba ya Kufuatilia:</strong> <span id="modalTrackingNumber"></span></p>
+                <p><strong>Tarehe:</strong> <span id="modalDate"></span></p>
+                <p><strong>Aina ya Ripoti:</strong> <span id="modalType"></span></p>
+                <p><strong>Hali:</strong> Imetumwa kwa PCCB</p>
+                <hr style="margin: 15px 0; border: none; border-top: 1px solid var(--border-color);">
+                <p>Ripoti yako imetumwa kwa njia zifuatazo:</p>
+                <ul>
+                    <li>✅ Email moja kwa moja kwa club ya PCCB Kumgogo Sekondari</li>
+                    <li>✅ Imehifadhiwa kwenye kifaa chako</li>
+                    <li>✅ Imepokelewa na namba ya kufuatilia</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="downloadReport">
+                    <i class="fas fa-download"></i> Pakua Cheti
+                </button>
+                <button type="button" id="closeModal">Funga</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('TAKUKURU Reporting System initializing...');
+            
+            // Initialize local storage for reports
+            if (!localStorage.getItem('pccbReports')) {
+                localStorage.setItem('pccbReports', JSON.stringify([]));
+            }
+            
+            // Initialize local storage for stories
+            if (!localStorage.getItem('jamiiStories')) {
+                localStorage.setItem('jamiiStories', JSON.stringify([]));
+            }
+            
+            // Initialize local storage for server credentials
+            if (!localStorage.getItem('serverCredentials')) {
+                localStorage.setItem('serverCredentials', JSON.stringify({
+                    email: 'msafiribaruti157@gmail.com',
+                    password: 'defaultpassword',
+                    accessCode: '4D-codetech'
+                }));
+            }
+            
+            // Load reports from local storage
+            let mockReports = JSON.parse(localStorage.getItem('pccbReports')) || [];
+            
+            // Load stories from local storage
+            let jamiiStories = JSON.parse(localStorage.getItem('jamiiStories')) || [];
+            
+            // Load server credentials from local storage
+            let serverCredentials = JSON.parse(localStorage.getItem('serverCredentials')) || {};
+            
+            // Server login state
+            let serverLoggedIn = false;
+            
+            // DOM Elements
+            const elements = {
+                form: document.getElementById('pccbChatForm'),
+                submitBtn: document.getElementById('submit-btn'),
+                trackBtn: document.getElementById('track-btn'),
+                loader: document.getElementById('loader'),
+                responseMessage: document.getElementById('responseMessage'),
+                tabs: document.querySelectorAll('.tabs .tab'),
+                tabContents: document.querySelectorAll('.tab-content'),
+                fileNameDisplay: document.getElementById('file-name'),
+                fileInput: document.getElementById('evidence'),
+                anonymousCheckbox: document.getElementById('anonymous'),
+                phoneNumberInput: document.getElementById('phoneNumber'),
+                commenterNameInput: document.getElementById('commenterName'),
+                formInputs: document.querySelectorAll('#report-form input:not([type="file"]), #report-form select, #report-form textarea'),
+                progressContainer: document.getElementById('progress-container'),
+                progressBar: document.getElementById('progress-bar'),
+                trackingNumberInput: document.getElementById('trackingNumber'),
+                recentReportsContainer: document.getElementById('recent-reports'),
+                reportsList: document.getElementById('reports-list'),
+                fab: document.querySelector('.fab'),
+                // Dashboard elements
+                totalReports: document.getElementById('total-reports'),
+                pendingReports: document.getElementById('pending-reports'),
+                investigatingReports: document.getElementById('investigating-reports'),
+                processedReports: document.getElementById('processed-reports'),
+                repliedReports: document.getElementById('replied-reports'),
+                todayReports: document.getElementById('today-reports'),
+                weeklyChart: document.getElementById('weekly-chart'),
+                typeChart: document.getElementById('type-chart'),
+                autoRefresh: document.getElementById('auto-refresh'),
+                refreshText: document.getElementById('refresh-text'),
+                // Community reports elements
+                communityReportsList: document.getElementById('community-reports-list'),
+                // Jamii (Community) elements
+                addStoryBtn: document.getElementById('add-story-btn'),
+                storyForm: document.getElementById('story-form'),
+                storyAuthorInput: document.getElementById('story-author'),
+                storyContentInput: document.getElementById('story-content'),
+                submitStoryBtn: document.getElementById('submit-story-btn'),
+                storiesContainer: document.getElementById('stories-container'),
+                // Modal elements
+                reportModal: document.getElementById('reportModal'),
+                modalTrackingNumber: document.getElementById('modalTrackingNumber'),
+                modalDate: document.getElementById('modalDate'),
+                modalType: document.getElementById('modalType'),
+                downloadReportBtn: document.getElementById('downloadReport'),
+                closeModalBtn: document.getElementById('closeModal'),
+                modalClose: document.querySelector('.close'),
+                // Server elements
+                serverLogin: document.getElementById('server-login'),
+                serverDashboard: document.getElementById('server-dashboard'),
+                serverLoginForm: document.getElementById('server-login-form'),
+                serverLoginBtn: document.getElementById('server-login-btn'),
+                serverEmailInput: document.getElementById('server-email'),
+                serverPasswordInput: document.getElementById('server-password'),
+                serverAccessCodeInput: document.getElementById('server-access-code'),
+                serverLogoutBtn: document.getElementById('server-logout-btn'),
+                serverReports: document.getElementById('server-reports'),
+                passwordChangeForm: document.getElementById('password-change-form'),
+                changePasswordBtn: document.getElementById('change-password-btn'),
+                currentPasswordInput: document.getElementById('current-password'),
+                newPasswordInput: document.getElementById('new-password'),
+                confirmPasswordInput: document.getElementById('confirm-password')
+            };
+
+            // Utility Functions
+            const utils = {
+                // Show message with type and auto-hide
+                showMessage: function(message, type) {
+                    type = type || 'success';
+                    elements.responseMessage.textContent = message;
+                    elements.responseMessage.className = `show ${type}`;
+
+                    setTimeout(function() {
+                        elements.responseMessage.className = '';
+                    }, 5000);
+                },
+
+                // Show/Hide full-screen loader
+                toggleLoader: function(show) {
+                    elements.loader.style.display = show ? 'flex' : 'none';
+                },
+
+                // Save reports to local storage
+                saveReports: function() {
+                    localStorage.setItem('pccbReports', JSON.stringify(mockReports));
+                },
+
+                // Save stories to local storage
+                saveStories: function() {
+                    localStorage.setItem('jamiiStories', JSON.stringify(jamiiStories));
+                },
+
+                // Save server credentials to local storage
+                saveServerCredentials: function() {
+                    localStorage.setItem('serverCredentials', JSON.stringify(serverCredentials));
+                },
+
+                // Send email to PCCB
+                sendEmailToPCCB: function(reportData) {
+                    const subject = `RIPOTI YA UFISADI - ${reportData.trackingNumber}`;
+                    const body = `
+RIPOTI MPYA YA UFISADI
+
+Namba ya Kufuatilia: ${reportData.trackingNumber}
+Tarehe: ${reportData.date}
+Aina ya Ripoti: ${reportData.type}
+
+Jina la Mripoti: ${reportData.anonymous ? 'Mtu Asiyejulikana' : reportData.name}
+Namba ya Simu: ${reportData.anonymous ? 'Imefichwa' : reportData.phone}
+
+Mahali Palipotokea: ${reportData.location}
+Watu Waliohusika: ${reportData.involvedPersons}
+
+Maelezo ya Tukio:
+ ${reportData.description}
+
+Hali: Imetumwa kupika TAKUKURU Online System
+                    `.trim();
+
+                    // Create mailto link
+                    const mailtoLink = `mailto:msafiribaruti157@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    // Open email client
+                    window.open(mailtoLink, '_blank');
+                    
+                    return true;
+                },
+
+                // Simulate API call for file upload
+                simulateUpload: function(file) {
+                    return new Promise(function(resolve) {
+                        elements.progressContainer.style.display = 'block';
+                        elements.progressBar.style.width = '0%';
+                        let progress = 0;
+
+                        const interval = setInterval(function() {
+                            progress += 10;
+                            if (progress >= 100) {
+                                clearInterval(interval);
+                                elements.progressBar.style.width = '100%';
+                                setTimeout(function() {
+                                    elements.progressContainer.style.display = 'none';
+                                    resolve(true);
+                                }, 500);
+                            } else {
+                                elements.progressBar.style.width = `${progress}%`;
+                            }
+                        }, 100);
+                    });
+                },
+
+                // Simple validation check
+                validateForm: function() {
+                    let isValid = true;
+                    
+                    elements.formInputs.forEach(function(input) {
+                        const formGroup = input.closest('.form-group');
+                        if (!formGroup) return; // Skip if no form-group
+
+                        // Check if required field is empty AND is NOT anonymous-optional field
+                        const isOptionalAnon = (input === elements.phoneNumberInput || input === elements.commenterNameInput) && elements.anonymousCheckbox.checked;
+
+                        if (input.hasAttribute('required') && !isOptionalAnon && !input.value.trim()) {
+                            formGroup.classList.add('error');
+                            isValid = false;
+                        } 
+                        // Special validation for phone number format
+                        else if (input === elements.phoneNumberInput && input.value.trim() && !input.validity.valid) {
+                            formGroup.classList.add('error');
+                            isValid = false;
+                        }
+                        else {
+                            formGroup.classList.remove('error');
+                        }
+                    });
+                    
+                    // Check Agreement box
+                    const agreementCheckbox = document.getElementById('agreement');
+                    const agreementGroup = agreementCheckbox.closest('.checkbox-group');
+                    if (!agreementCheckbox.checked) {
+                        agreementGroup.style.border = `1px solid var(--error-red)`;
+                        isValid = false;
+                    } else {
+                        agreementGroup.style.border = 'none';
+                    }
+
+                    return isValid;
+                },
+
+                // Validate story form
+                validateStoryForm: function() {
+                    let isValid = true;
+                    
+                    // Check author
+                    if (!elements.storyAuthorInput.value.trim()) {
+                        elements.storyAuthorInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.storyAuthorInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    // Check content
+                    if (!elements.storyContentInput.value.trim()) {
+                        elements.storyContentInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.storyContentInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    return isValid;
+                },
+
+                // Validate server login form
+                validateServerLoginForm: function() {
+                    let isValid = true;
+                    
+                    // Check email
+                    if (!elements.serverEmailInput.value.trim()) {
+                        elements.serverEmailInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.serverEmailInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    // Check password
+                    if (!elements.serverPasswordInput.value.trim()) {
+                        elements.serverPasswordInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.serverPasswordInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    // Check access code
+                    if (!elements.serverAccessCodeInput.value.trim()) {
+                        elements.serverAccessCodeInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.serverAccessCodeInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    return isValid;
+                },
+
+                // Validate password change form
+                validatePasswordChangeForm: function() {
+                    let isValid = true;
+                    
+                    // Check current password
+                    if (!elements.currentPasswordInput.value.trim()) {
+                        elements.currentPasswordInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.currentPasswordInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    // Check new password
+                    if (!elements.newPasswordInput.value.trim()) {
+                        elements.newPasswordInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.newPasswordInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    // Check confirm password
+                    if (!elements.confirmPasswordInput.value.trim()) {
+                        elements.confirmPasswordInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else if (elements.newPasswordInput.value !== elements.confirmPasswordInput.value) {
+                        elements.confirmPasswordInput.closest('.form-group').classList.add('error');
+                        isValid = false;
+                    } else {
+                        elements.confirmPasswordInput.closest('.form-group').classList.remove('error');
+                    }
+                    
+                    return isValid;
+                },
+
+                // Generate a simple mock tracking number
+                generateTrackingNumber: function() {
+                    const now = new Date();
+                    const year = now.getFullYear();
+                    const num = Math.floor(Math.random() * 9000) + 1000;
+                    return `PCCB/${year}/${num}`;
+                },
+
+                // Generate a unique ID for stories
+                generateStoryId: function() {
+                    return 'story_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+                },
+
+                // Update dashboard statistics
+                updateDashboard: function() {
+                    const total = mockReports.length;
+                    const pending = mockReports.filter(r => r.status === 'Imetumwa').length;
+                    const investigating = mockReports.filter(r => r.status === 'Inachunguzwa').length;
+                    const processed = mockReports.filter(r => r.status === 'Imekamilika').length;
+                    const replied = mockReports.filter(r => r.status === 'Imejibiwa').length;
+                    const today = new Date().toISOString().split('T')[0];
+                    const todayCount = mockReports.filter(r => r.date === today).length;
+
+                    elements.totalReports.textContent = total;
+                    elements.pendingReports.textContent = pending;
+                    elements.investigatingReports.textContent = investigating;
+                    elements.processedReports.textContent = processed;
+                    elements.repliedReports.textContent = replied;
+                    elements.todayReports.textContent = todayCount;
+                },
+
+                // Generate weekly chart
+                generateWeeklyChart: function() {
+                    const days = ['Jumatatu', 'Jumanne', 'Jumatano', 'Alhamisi', 'Ijumaa', 'Jumamosi', 'Jumapili'];
+                    const today = new Date().getDay();
+                    const adjustedDay = today === 0 ? 6 : today - 1; // Adjust for Monday start
+                    
+                    let chartHTML = '';
+                    
+                    for (let i = 6; i >= 0; i--) {
+                        const dayIndex = (adjustedDay - i + 7) % 7;
+                        const date = new Date();
+                        date.setDate(date.getDate() - i);
+                        const dateStr = date.toISOString().split('T')[0];
+                        
+                        // Count reports for this day
+                        const count = mockReports.filter(r => r.date === dateStr).length;
+                        const height = Math.max(count * 20, 10); // Minimum height of 10px
+                        
+                        chartHTML += `
+                            <div class="bar" style="height: ${height}px;">
+                                <div class="bar-value">${count}</div>
+                                <div class="bar-label">${days[dayIndex]}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    elements.weeklyChart.innerHTML = chartHTML;
+                },
+
+                // Generate type chart
+                generateTypeChart: function() {
+                    const types = {
+                        'Rushwa': 0,
+                        'Udanganyaji': 0,
+                        'Matumizi Mabaya': 0,
+                        'Upendeleo': 0,
+                        'Udanganyaji wa Mnada': 0,
+                        'Nyinginezo': 0
+                    };
+                    
+                    mockReports.forEach(report => {
+                        if (types[report.type] !== undefined) {
+                            types[report.type]++;
+                        }
+                    });
+                    
+                    let chartHTML = '';
+                    const maxCount = Math.max(...Object.values(types), 1);
+                    
+                    for (const [type, count] of Object.entries(types)) {
+                        const height = (count / maxCount) * 150; // Max height of 150px
+                        
+                        chartHTML += `
+                            <div class="bar" style="height: ${height}px;">
+                                <div class="bar-value">${count}</div>
+                                <div class="bar-label">${type.substring(0, 8)}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    elements.typeChart.innerHTML = chartHTML;
+                },
+
+                // Generate community reports
+                generateCommunityReports: function() {
+                    if (mockReports.length === 0) {
+                        elements.communityReportsList.innerHTML = '<p>Hakuna ripoti za jamii zilizopatikana.</p>';
+                        return;
+                    }
+
+                    // Sort reports by date (newest first)
+                    const sortedReports = [...mockReports].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    elements.communityReportsList.innerHTML = sortedReports.map(function(report) {
+                        let statusClass = 'pending';
+                        if (report.status === 'Imekamilika') {
+                            statusClass = 'processed';
+                        } else if (report.status === 'Inachunguzwa') {
+                            statusClass = 'investigating';
+                        } else if (report.status === 'Imejibiwa') {
+                            statusClass = 'replied';
+                        }
+                        
+                        const reportType = report.type || 'Nyinginezo';
+                        
+                        // Anonymize the report by removing any potential identifying information
+                        let anonymizedDescription = report.description;
+                        
+                        // Remove any potential names or identifying information
+                        anonymizedDescription = anonymizedDescription.replace(/\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/g, '[JINA LIMEFICHWA]');
+                        anonymizedDescription = anonymizedDescription.replace(/\+255\d{9}/g, '[NAMBA IMEFICHWA]');
+                        
+                        return `
+                            <div class="report-card">
+                                <div class="privacy-badge">
+                                    <i class="fas fa-user-secret"></i>
+                                </div>
+                                <div class="report-header">
+                                    <div class="report-type">${reportType}</div>
+                                    <div class="report-date">${report.date}</div>
+                                </div>
+                                <div class="report-content">
+                                    ${anonymizedDescription}
+                                </div>
+                                <div class="report-location">
+                                    <i class="fas fa-map-marker-alt"></i> ${report.location}
+                                </div>
+                                <div class="report-status ${statusClass}">${report.status}</div>
+                            </div>
+                        `;
+                    }).join('');
+                },
+
+                // Generate stories for Jamii section
+                generateStories: function() {
+                    if (jamiiStories.length === 0) {
+                        elements.storiesContainer.innerHTML = '<p>Hakuna hadithi zilizopatikana. Kuwa wa kwanza kushare hadithi yako!</p>';
+                        return;
+                    }
+
+                    // Sort stories by date (newest first)
+                    const sortedStories = [...jamiiStories].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    elements.storiesContainer.innerHTML = sortedStories.map(function(story) {
+                        const authorInitial = story.author.charAt(0).toUpperCase();
+                        const formattedDate = new Date(story.date).toLocaleDateString('sw-TZ');
+                        
+                        // Generate replies HTML
+                        let repliesHTML = '';
+                        if (story.replies && story.replies.length > 0) {
+                            // Show only first 2 replies initially
+                            const visibleReplies = story.showAllReplies ? story.replies : story.replies.slice(0, 2);
+                            
+                            repliesHTML = `
+                                <div class="story-replies">
+                                    ${visibleReplies.map(function(reply) {
+                                        const replyAuthorInitial = reply.author.charAt(0).toUpperCase();
+                                        const replyFormattedDate = new Date(reply.date).toLocaleDateString('sw-TZ');
+                                        
+                                        return `
+                                            <div class="reply">
+                                                <div class="reply-avatar">${replyAuthorInitial}</div>
+                                                <div class="reply-content">
+                                                    <div class="reply-author">${reply.author}</div>
+                                                    <div class="reply-text">${reply.text}</div>
+                                                    <div class="reply-date">${replyFormattedDate}</div>
+                                                </div>
+                                            </div>
+                                        `;
+                                    }).join('')}
+                                    
+                                    ${story.replies.length > 2 ? `
+                                        <button class="show-replies-btn" data-story-id="${story.id}">
+                                            <i class="fas fa-${story.showAllReplies ? 'chevron-up' : 'chevron-down'}"></i>
+                                            ${story.showAllReplies ? 'Onyesha Machache' : `Ona Zaidi (${story.replies.length - 2})`}
+                                        </button>
+                                    ` : ''}
+                                </div>
+                            `;
+                        }
+                        
+                        return `
+                            <div class="story-card" data-story-id="${story.id}">
+                                <div class="story-header">
+                                    <div class="story-author">
+                                        <div class="author-avatar">${authorInitial}</div>
+                                        <div class="author-info">
+                                            <div class="author-name">${story.author}</div>
+                                            <div class="story-date">${formattedDate}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="story-content">${story.content}</div>
+                                <div class="story-actions">
+                                    <button class="action-btn ${story.liked ? 'liked' : ''}" data-action="like" data-story-id="${story.id}">
+                                        <i class="fas fa-thumbs-up"></i> ${story.likes}
+                                    </button>
+                                    <button class="action-btn ${story.disliked ? 'disliked' : ''}" data-action="dislike" data-story-id="${story.id}">
+                                        <i class="fas fa-thumbs-down"></i> ${story.dislikes}
+                                    </button>
+                                    <button class="action-btn" data-action="reply" data-story-id="${story.id}">
+                                        <i class="fas fa-comment"></i> ${story.replies ? story.replies.length : 0}
+                                    </button>
+                                </div>
+                                
+                                <div class="reply-form" id="reply-form-${story.id}" style="display: none;">
+                                    <input type="text" class="reply-input" placeholder="Andika jibu lako..." data-story-id="${story.id}">
+                                    <button class="reply-btn" data-story-id="${story.id}">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                
+                                ${repliesHTML}
+                            </div>
+                        `;
+                    }).join('');
+                    
+                    // Add event listeners to story action buttons
+                    document.querySelectorAll('.action-btn').forEach(btn => {
+                        btn.addEventListener('click', jamiiHandlers.handleStoryAction);
+                    });
+                    
+                    // Add event listeners to reply buttons
+                    document.querySelectorAll('.reply-btn').forEach(btn => {
+                        btn.addEventListener('click', jamiiHandlers.handleReplySubmit);
+                    });
+                    
+                    // Add event listeners to show more/less replies buttons
+                    document.querySelectorAll('.show-replies-btn').forEach(btn => {
+                        btn.addEventListener('click', jamiiHandlers.toggleRepliesVisibility);
+                    });
+                },
+
+                // Generate server reports
+                generateServerReports: function() {
+                    if (mockReports.length === 0) {
+                        elements.serverReports.innerHTML = '<p>Hakuna ripoti zilizopatikana.</p>';
+                        return;
+                    }
+
+                    // Sort reports by date (newest first)
+                    const sortedReports = [...mockReports].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    elements.serverReports.innerHTML = sortedReports.map(function(report) {
+                        let statusClass = 'pending';
+                        if (report.status === 'Imekamilika') {
+                            statusClass = 'processed';
+                        } else if (report.status === 'Inachunguzwa') {
+                            statusClass = 'investigating';
+                        } else if (report.status === 'Imejibiwa') {
+                            statusClass = 'replied';
+                        }
+                        
+                        const reportType = report.type || 'Nyinginezo';
+                        
+                        // Generate reply HTML if exists
+                        let replyHTML = '';
+                        if (report.reply) {
+                            replyHTML = `
+                                <div class="server-reply-display">
+                                    <p>${report.reply}</p>
+                                    <div class="reply-date">Imejibiwa tarehe: ${new Date(report.replyDate).toLocaleDateString('sw-TZ')}</div>
+                                </div>
+                            `;
+                        }
+                        
+                        return `
+                            <div class="server-report-card" data-report-id="${report.trackingNumber}">
+                                <div class="server-report-header">
+                                    <div class="server-report-id">${report.trackingNumber}</div>
+                                    <div class="server-report-date">${report.date}</div>
+                                </div>
+                                <div class="server-report-content">
+                                    <p><strong>Aina:</strong> ${reportType}</p>
+                                    <p><strong>Maelezo:</strong> ${report.description}</p>
+                                    <p><strong>Mahali:</strong> ${report.location}</p>
+                                    <p><strong>Watu Waliohusika:</strong> ${report.involvedPersons}</p>
+                                    <p><strong>Anaripoti:</strong> ${report.anonymous ? 'Mtu Asiyejulikana' : report.name}</p>
+                                    <p><strong>Namba ya Simu:</strong> ${report.anonymous ? 'Imefichwa' : report.phone}</p>
+                                </div>
+                                <div class="server-report-location">
+                                    <i class="fas fa-map-marker-alt"></i> ${report.location}
+                                </div>
+                                <div class="server-report-status ${statusClass}">${report.status}</div>
+                                
+                                ${replyHTML}
+                                
+                                <div class="server-reply-form" id="reply-form-${report.trackingNumber}" style="display: ${report.reply ? 'none' : 'block'};">
+                                    <textarea class="server-reply-textarea" placeholder="Andika jibu lako..." data-report-id="${report.trackingNumber}"></textarea>
+                                    <div class="server-reply-actions">
+                                        <button class="server-reply-btn" data-report-id="${report.trackingNumber}">JIBU</button>
+                                        <button class="server-cancel-btn" data-report-id="${report.trackingNumber}">GHAIRI</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                    
+                    // Add event listeners to server reply buttons
+                    document.querySelectorAll('.server-reply-btn').forEach(btn => {
+                        btn.addEventListener('click', serverHandlers.handleReplySubmit);
+                    });
+                    
+                    // Add event listeners to server cancel buttons
+                    document.querySelectorAll('.server-cancel-btn').forEach(btn => {
+                        btn.addEventListener('click', serverHandlers.handleReplyCancel);
+                    });
+                },
+
+                // Show report confirmation modal
+                showReportModal: function(reportData) {
+                    elements.modalTrackingNumber.textContent = reportData.trackingNumber;
+                    elements.modalDate.textContent = reportData.date;
+                    elements.modalType.textContent = reportData.type;
+                    elements.reportModal.style.display = 'flex';
+                },
+
+                // Download report certificate
+                downloadReportCertificate: function(reportData) {
+                    const certificateContent = `
+CHETI CHA RIPOTI YA UFISADI
+========================================
+
+Namba ya Kufuatilia: ${reportData.trackingNumber}
+Tarehe ya Ripoti: ${reportData.date}
+Aina ya Ripoti: ${reportData.type}
+
+Hali ya Ripoti: Imetumwa kwa PCCB
+
+ Maelezo:
+ ${reportData.description}
+
+Mahali: ${reportData.location}
+
+========================================
+Hii ni ripoti halali iliyotumwa kwa
+Shirika la Kuzuia na Kupambana na Rushwa (PCCB)
+kupitia mfumo wa TAKUKURU Online.
+
+Tunashukuru ujasiri wako wa kupambana na ufisadi.
+
+========================================
+Imetengenezwa tarehe: ${new Date().toLocaleString('sw-TZ')}
+                    `.trim();
+
+                    // Create blob and download
+                    const blob = new Blob([certificateContent], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `PCCB_Report_${reportData.trackingNumber}.txt`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                },
+
+                // Simulate status updates from PCCB
+                simulateStatusUpdates: function() {
+                    // Get reports that are not completed
+                    const activeReports = mockReports.filter(r => r.status !== 'Imekamilika');
+                    
+                    if (activeReports.length === 0) return;
+                    
+                    // Randomly select a report to update
+                    const randomIndex = Math.floor(Math.random() * activeReports.length);
+                    const report = activeReports[randomIndex];
+                    
+                    // Update status based on current status
+                    if (report.status === 'Imetumwa') {
+                        report.status = 'Inachunguzwa';
+                        report.statusDate = new Date().toISOString();
+                        utils.showMessage(`Ripoti ${report.trackingNumber} inaendelea kuchunguzwa`, 'success');
+                    } else if (report.status === 'Inachunguzwa') {
+                        // 50% chance to move to completed or stay in investigating
+                        if (Math.random() > 0.5) {
+                            report.status = 'Imekamilika';
+                            report.statusDate = new Date().toISOString();
+                            utils.showMessage(`Ripoti ${report.trackingNumber} imekamilika`, 'success');
+                        }
+                    }
+                    
+                    // Save changes
+                    utils.saveReports();
+                    
+                    // Update dashboard if visible
+                    if (document.getElementById('dashboard').classList.contains('active')) {
+                        utils.updateDashboard();
+                        utils.generateWeeklyChart();
+                        utils.generateTypeChart();
+                    }
+                    
+                    // Update community reports if visible
+                    if (document.getElementById('community-reports').classList.contains('active')) {
+                        utils.generateCommunityReports();
+                    }
+                    
+                    // Update server reports if visible and logged in
+                    if (document.getElementById('server').classList.contains('active') && serverLoggedIn) {
+                        utils.generateServerReports();
+                    }
+                },
+
+                // Start auto-refresh of reports
+                startAutoRefresh: function() {
+                    // Update UI to show auto-refresh is active
+                    elements.autoRefresh.classList.add('active');
+                    
+                    // Set up interval to check for updates every 30 seconds
+                    setInterval(function() {
+                        // Update countdown
+                        let secondsLeft = 30;
+                        const countdownInterval = setInterval(function() {
+                            secondsLeft--;
+                            elements.refreshText.textContent = `Inasasisha kwa sekunde ${secondsLeft}...`;
+                            
+                            if (secondsLeft <= 0) {
+                                clearInterval(countdownInterval);
+                                elements.refreshText.textContent = 'Inasasisha...';
+                                
+                                // Simulate status updates
+                                utils.simulateStatusUpdates();
+                                
+                                // Reset countdown
+                                setTimeout(function() {
+                                    elements.refreshText.textContent = 'Inasasisha kila sekunde 30...';
+                                }, 2000);
+                            }
+                        }, 1000);
+                    }, 30000);
+                }
+            };
+
+            // Form Handlers
+            const formHandlers = {
+                // Update floating label state based on input value
+                updateFilledState: function(e) {
+                    const input = e.target || e;
+                    const formGroup = input.closest('.form-group');
+                    if (formGroup) {
+                        if (input.value.trim()) {
+                            formGroup.classList.add('filled');
+                        } else {
+                            formGroup.classList.remove('filled');
+                        }
+                        // Clear error when user types
+                        formGroup.classList.remove('error');
+                    }
+                },
+
+                // Handle file selection
+                handleFileSelect: function() {
+                    const file = elements.fileInput.files[0];
+                    if (file) {
+                        elements.fileNameDisplay.innerHTML = `<i class="fas fa-file"></i> File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                    } else {
+                        elements.fileNameDisplay.textContent = '';
+                    }
+                },
+
+                // Toggle optional required status for name/phone when anonymous is checked
+                handleAnonymousToggle: function() {
+                    const isAnonymous = elements.anonymousCheckbox.checked;
+
+                    if (isAnonymous) {
+                        elements.phoneNumberInput.removeAttribute('required');
+                        elements.phoneNumberInput.value = '';
+                        elements.phoneNumberInput.closest('.form-group').classList.remove('error');
+
+                        elements.commenterNameInput.removeAttribute('required');
+                        elements.commenterNameInput.value = '';
+                        elements.commenterNameInput.closest('.form-group').classList.remove('error');
+                    } else {
+                        elements.phoneNumberInput.setAttribute('required', 'required');
+                        // Name is always optional by HTML standard but we rely on custom validation.
+                    }
+
+                    formHandlers.updateFilledState(elements.phoneNumberInput);
+                    formHandlers.updateFilledState(elements.commenterNameInput);
+                },
+
+                // Handle form submission
+                handleSubmit: async function(e) {
+                    e.preventDefault();
+                    
+                    if (!utils.validateForm()) {
+                        utils.showMessage('Tafadhali jaza sehemu zote zinazohitajika.', 'error');
+                        return;
+                    }
+
+                    elements.submitBtn.classList.add('loading');
+                    elements.submitBtn.disabled = true;
+
+                    // 1. Simulate file upload (if a file is present)
+                    const file = elements.fileInput.files[0];
+                    if (file) {
+                        await utils.simulateUpload(file);
+                    }
+
+                    // 2. Collect form data
+                    const trackingNumber = utils.generateTrackingNumber();
+                    const reportType = elements.form.querySelector('#reportType').value;
+                    const reportName = elements.form.querySelector('#commenterName').value || 'Mtu Asiyejulikana';
+                    const reportPhone = elements.form.querySelector('#phoneNumber').value;
+                    const reportLocation = elements.form.querySelector('#location').value;
+                    const reportDescription = elements.form.querySelector('#commentText').value;
+                    const reportInvolved = elements.form.querySelector('#involvedPersons').value;
+                    const isAnonymous = elements.anonymousCheckbox.checked;
+
+                    const reportData = {
+                        trackingNumber: trackingNumber,
+                        date: new Date().toISOString().split('T')[0],
+                        type: reportType,
+                        name: reportName,
+                        phone: reportPhone,
+                        location: reportLocation,
+                        description: reportDescription,
+                        involvedPersons: reportInvolved,
+                        anonymous: isAnonymous,
+                        status: 'Imetumwa',
+                        statusDate: new Date().toISOString()
+                    };
+
+                    // 3. Save to local storage
+                    mockReports.push(reportData);
+                    utils.saveReports();
+
+                    // 4. Send email to PCCB
+                    utils.sendEmailToPCCB(reportData);
+
+                    // 5. Update dashboard and community reports
+                    utils.updateDashboard();
+                    utils.generateWeeklyChart();
+                    utils.generateTypeChart();
+                    utils.generateCommunityReports();
+
+                    // 6. Show confirmation modal
+                    utils.showReportModal(reportData);
+
+                    // 7. Reset Form
+                    elements.form.reset();
+                    elements.formInputs.forEach(function(input) {
+                        input.closest('.form-group').classList.remove('filled', 'error');
+                    });
+                    elements.fileNameDisplay.textContent = '';
+                    document.getElementById('agreement').closest('.checkbox-group').style.border = 'none';
+
+                    // 8. Reset button state
+                    elements.submitBtn.classList.remove('loading');
+                    elements.submitBtn.disabled = false;
+
+                    // 9. Show success message
+                    utils.showMessage(`Ripoti imetumwa kwa PCCB! Namba ya kufuatilia: ${trackingNumber}`, 'success');
+                },
+
+                init: function() {
+                    // Attach Event Listeners
+                    elements.form.addEventListener('submit', formHandlers.handleSubmit);
+                    elements.fileInput.addEventListener('change', formHandlers.handleFileSelect);
+                    elements.anonymousCheckbox.addEventListener('change', formHandlers.handleAnonymousToggle);
+                    
+                    // Add input/change listener to all main form inputs for floating label effect and error clearing
+                    elements.formInputs.forEach(function(input) {
+                        input.addEventListener('input', formHandlers.updateFilledState);
+                        input.addEventListener('change', formHandlers.updateFilledState);
+                        // Initial check to update labels on load if fields are pre-filled (e.g., after a browser refresh)
+                        formHandlers.updateFilledState(input);
+                    });
+                }
+            };
+
+            // Jamii (Community) Handlers
+            const jamiiHandlers = {
+                // Toggle story form visibility
+                toggleStoryForm: function() {
+                    elements.storyForm.classList.toggle('active');
+                    if (elements.storyForm.classList.contains('active')) {
+                        elements.storyAuthorInput.focus();
+                    }
+                },
+
+                // Handle story submission
+                handleStorySubmit: function() {
+                    if (!utils.validateStoryForm()) {
+                        utils.showMessage('Tafadhali jaza sehemu zote zinazohitajika.', 'error');
+                        return;
+                    }
+
+                    elements.submitStoryBtn.classList.add('loading');
+                    elements.submitStoryBtn.disabled = true;
+
+                    // Create new story object
+                    const newStory = {
+                        id: utils.generateStoryId(),
+                        author: elements.storyAuthorInput.value.trim(),
+                        content: elements.storyContentInput.value.trim(),
+                        date: new Date().toISOString(),
+                        likes: 0,
+                        dislikes: 0,
+                        liked: false,
+                        disliked: false,
+                        replies: [],
+                        showAllReplies: false
+                    };
+
+                    // Add to stories array
+                    jamiiStories.push(newStory);
+                    utils.saveStories();
+
+                    // Reset form
+                    elements.storyAuthorInput.value = '';
+                    elements.storyContentInput.value = '';
+                    elements.storyAuthorInput.closest('.form-group').classList.remove('filled', 'error');
+                    elements.storyContentInput.closest('.form-group').classList.remove('filled', 'error');
+                    elements.storyForm.classList.remove('active');
+
+                    // Reset button state
+                    elements.submitStoryBtn.classList.remove('loading');
+                    elements.submitStoryBtn.disabled = false;
+
+                    // Update stories display
+                    utils.generateStories();
+
+                    // Show success message
+                    utils.showMessage('Hadithi yako imewekwa kwa mafanikio!', 'success');
+                },
+
+                // Handle story actions (like, dislike, reply)
+                handleStoryAction: function(e) {
+                    const action = e.currentTarget.getAttribute('data-action');
+                    const storyId = e.currentTarget.getAttribute('data-story-id');
+                    
+                    // Find the story
+                    const storyIndex = jamiiStories.findIndex(s => s.id === storyId);
+                    if (storyIndex === -1) return;
+                    
+                    const story = jamiiStories[storyIndex];
+                    
+                    if (action === 'like') {
+                        if (story.liked) {
+                            // Unlike
+                            story.likes--;
+                            story.liked = false;
+                        } else {
+                            // Like
+                            story.likes++;
+                            story.liked = true;
+                            
+                            // If previously disliked, remove dislike
+                            if (story.disliked) {
+                                story.dislikes--;
+                                story.disliked = false;
+                            }
+                        }
+                    } else if (action === 'dislike') {
+                        if (story.disliked) {
+                            // Remove dislike
+                            story.dislikes--;
+                            story.disliked = false;
+                        } else {
+                            // Dislike
+                            story.dislikes++;
+                            story.disliked = true;
+                            
+                            // If previously liked, remove like
+                            if (story.liked) {
+                                story.likes--;
+                                story.liked = false;
+                            }
+                        }
+                    } else if (action === 'reply') {
+                        // Toggle reply form
+                        const replyForm = document.getElementById(`reply-form-${storyId}`);
+                        const allReplyForms = document.querySelectorAll('.reply-form');
+                        
+                        // Hide all other reply forms
+                        allReplyForms.forEach(form => {
+                            if (form.id !== `reply-form-${storyId}`) {
+                                form.style.display = 'none';
+                            }
+                        });
+                        
+                        // Toggle current reply form
+                        replyForm.style.display = replyForm.style.display === 'none' ? 'flex' : 'none';
+                        
+                        // Focus on input if showing
+                        if (replyForm.style.display === 'flex') {
+                            replyForm.querySelector('.reply-input').focus();
+                        }
+                        
+                        // No need to save or regenerate stories for this action
+                        return;
+                    }
+                    
+                    // Save changes
+                    utils.saveStories();
+                    
+                    // Update display
+                    utils.generateStories();
+                },
+
+                // Handle reply submission
+                handleReplySubmit: function(e) {
+                    const storyId = e.currentTarget.getAttribute('data-story-id');
+                    const replyInput = document.querySelector(`.reply-input[data-story-id="${storyId}"]`);
+                    const replyText = replyInput.value.trim();
+                    
+                    if (!replyText) return;
+                    
+                    // Find the story
+                    const storyIndex = jamiiStories.findIndex(s => s.id === storyId);
+                    if (storyIndex === -1) return;
+                    
+                    // Create new reply
+                    const newReply = {
+                        author: 'Mtu wa Jamii', // In a real app, this would be the logged-in user
+                        text: replyText,
+                        date: new Date().toISOString()
+                    };
+                    
+                    // Add reply to story
+                    if (!jamiiStories[storyIndex].replies) {
+                        jamiiStories[storyIndex].replies = [];
+                    }
+                    jamiiStories[storyIndex].replies.push(newReply);
+                    
+                    // Save changes
+                    utils.saveStories();
+                    
+                    // Update display
+                    utils.generateStories();
+                },
+
+                // Toggle visibility of all replies
+                toggleRepliesVisibility: function(e) {
+                    const storyId = e.currentTarget.getAttribute('data-story-id');
+                    
+                    // Find the story
+                    const storyIndex = jamiiStories.findIndex(s => s.id === storyId);
+                    if (storyIndex === -1) return;
+                    
+                    // Toggle showAllReplies flag
+                    jamiiStories[storyIndex].showAllReplies = !jamiiStories[storyIndex].showAllReplies;
+                    
+                    // Save changes
+                    utils.saveStories();
+                    
+                    // Update display
+                    utils.generateStories();
+                },
+
+                init: function() {
+                    // Add event listeners
+                    elements.addStoryBtn.addEventListener('click', jamiiHandlers.toggleStoryForm);
+                    elements.submitStoryBtn.addEventListener('click', jamiiHandlers.handleStorySubmit);
+                    
+                    // Add input event listeners for story form
+                    elements.storyAuthorInput.addEventListener('input', formHandlers.updateFilledState);
+                    elements.storyContentInput.addEventListener('input', formHandlers.updateFilledState);
+                    
+                    // Initial check to update labels on load if fields are pre-filled
+                    formHandlers.updateFilledState(elements.storyAuthorInput);
+                    formHandlers.updateFilledState(elements.storyContentInput);
+                }
+            };
+
+            // Report Tracker Handlers
+            const reportTracker = {
+                // Display recent reports from mockReports array
+                displayRecentReports: function(reports) {
+                    if (reports.length === 0) {
+                        elements.reportsList.innerHTML = '<p>Hakuna ripoti za karibuni zilizopatikana.</p>';
+                        return;
+                    }
+
+                    elements.reportsList.innerHTML = reports.map(function(report) {
+                        let statusClass = 'pending';
+                        if (report.status === 'Imekamilika') {
+                            statusClass = 'processed';
+                        } else if (report.status === 'Inachunguzwa') {
+                            statusClass = 'investigating';
+                        } else if (report.status === 'Imejibiwa') {
+                            statusClass = 'replied';
+                        }
+                        
+                        return `
+                            <div class="report-item">
+                                <strong>Namba ya Kufuatilia: ${report.id || report.trackingNumber}</strong>
+                                <p>Aina: ${report.type} | Tarehe: ${report.date}</p>
+                                <p>Hali: <span class="report-status ${statusClass}">${report.status}</span></p>
+                                ${report.statusDate ? `<p>Tarehe ya Mabadiliko: ${new Date(report.statusDate).toLocaleDateString('sw-TZ')}</p>` : ''}
+                                ${report.reply ? `<p>Jibu: ${report.reply.substring(0, 100)}${report.reply.length > 100 ? '...' : ''}</p>` : ''}
+                            </div>
+                        `;
+                    }).join('');
+                    elements.recentReportsContainer.style.display = 'block';
+                },
+
+                // Handle the tracking button click
+                handleTrack: function() {
+                    const trackingNumber = elements.trackingNumberInput.value.trim();
+                    const formGroup = elements.trackingNumberInput.closest('.form-group');
+
+                    if (!trackingNumber) {
+                        formGroup.classList.add('error');
+                        utils.showMessage('Tafadhali weka namba ya kufuatilia.', 'error');
+                        elements.recentReportsContainer.style.display = 'none';
+                        return;
+                    }
+                    formGroup.classList.remove('error');
+
+                    elements.trackBtn.classList.add('loading');
+                    elements.trackBtn.disabled = true;
+                    
+                    // Simulate tracking/API call
+                    setTimeout(function() {
+                        elements.trackBtn.classList.remove('loading');
+                        elements.trackBtn.disabled = false;
+
+                        const foundReport = mockReports.find(function(r) {
+                            return (r.id === trackingNumber) || (r.trackingNumber === trackingNumber);
+                        });
+
+                        if (foundReport) {
+                            utils.showMessage(`Hali ya Ripoti ${trackingNumber}: ${foundReport.status}`, 'success');
+                            reportTracker.displayRecentReports([foundReport]);
+                        } else {
+                            utils.showMessage(`Namba ${trackingNumber} haikupatikana.`, 'error');
+                            elements.reportsList.innerHTML = '<p>Namba ya ripoti haikupatikana. Tafadhali hakikisha umeingiza namba sahihi.</p>';
+                            elements.recentReportsContainer.style.display = 'block';
+                        }
+                    }, 1500);
+                },
+
+                init: function() {
+                    elements.trackBtn.addEventListener('click', reportTracker.handleTrack);
+                    elements.trackingNumberInput.addEventListener('input', formHandlers.updateFilledState); // Re-use for label effect
+                    elements.trackingNumberInput.addEventListener('input', function(e) {
+                        e.target.closest('.form-group').classList.remove('error');
+                    });
+                    
+                    // Initially display mock reports
+                    reportTracker.displayRecentReports(mockReports);
+                }
+            };
+
+            // Server Handlers
+            const serverHandlers = {
+                // Handle server login
+                handleLogin: function(e) {
+                    e.preventDefault();
+                    
+                    if (!utils.validateServerLoginForm()) {
+                        utils.showMessage('Tafadhali jaza sehemu zote zinazohitajika.', 'error');
+                        return;
+                    }
+
+                    elements.serverLoginBtn.classList.add('loading');
+                    elements.serverLoginBtn.disabled = true;
+                    
+                    // Get form values
+                    const email = elements.serverEmailInput.value.trim();
+                    const password = elements.serverPasswordInput.value.trim();
+                    const accessCode = elements.serverAccessCodeInput.value.trim();
+                    
+                    // Simulate login process
+                    setTimeout(function() {
+                        elements.serverLoginBtn.classList.remove('loading');
+                        elements.serverLoginBtn.disabled = false;
+                        
+                        // Check credentials
+                        if (email === serverCredentials.email && 
+                            password === serverCredentials.password && 
+                            accessCode === serverCredentials.accessCode) {
+                            
+                            // Login successful
+                            serverLoggedIn = true;
+                            elements.serverLogin.style.display = 'none';
+                            elements.serverDashboard.style.display = 'block';
+                            
+                            // Generate server reports
+                            utils.generateServerReports();
+                            
+                            utils.showMessage('Umefanikiwa kuingia kwenye SERVER!', 'success');
+                        } else {
+                            // Login failed
+                            utils.showMessage('Barua pepe, nenosiri, au msimbo wa ufikiaji si sahihi.', 'error');
+                            
+                            // Clear form
+                            elements.serverLoginForm.reset();
+                            elements.serverEmailInput.closest('.form-group').classList.remove('filled');
+                            elements.serverPasswordInput.closest('.form-group').classList.remove('filled');
+                            elements.serverAccessCodeInput.closest('.form-group').classList.remove('filled');
+                        }
+                    }, 1500);
+                },
+
+                // Handle server logout
+                handleLogout: function() {
+                    serverLoggedIn = false;
+                    elements.serverLogin.style.display = 'block';
+                    elements.serverDashboard.style.display = 'none';
+                    
+                    // Clear form
+                    elements.serverLoginForm.reset();
+                    elements.serverEmailInput.closest('.form-group').classList.remove('filled');
+                    elements.serverPasswordInput.closest('.form-group').classList.remove('filled');
+                    elements.serverAccessCodeInput.closest('.form-group').classList.remove('filled');
+                    
+                    utils.showMessage('Umefanikiwa kutoka kwenye SERVER.', 'success');
+                },
+
+                // Handle reply submission
+                handleReplySubmit: function(e) {
+                    const reportId = e.currentTarget.getAttribute('data-report-id');
+                    const replyTextarea = document.querySelector(`.server-reply-textarea[data-report-id="${reportId}"]`);
+                    const replyText = replyTextarea.value.trim();
+                    
+                    if (!replyText) {
+                        utils.showMessage('Tafadhali andika jibu lako.', 'error');
+                        return;
+                    }
+                    
+                    // Find the report
+                    const reportIndex = mockReports.findIndex(r => r.trackingNumber === reportId);
+                    if (reportIndex === -1) return;
+                    
+                    // Update report with reply
+                    mockReports[reportIndex].reply = replyText;
+                    mockReports[reportIndex].replyDate = new Date().toISOString();
+                    mockReports[reportIndex].status = 'Imejibiwa';
+                    mockReports[reportIndex].statusDate = new Date().toISOString();
+                    
+                    // Save changes
+                    utils.saveReports();
+                    
+                    // Update dashboard
+                    utils.updateDashboard();
+                    utils.generateWeeklyChart();
+                    utils.generateTypeChart();
+                    utils.generateCommunityReports();
+                    
+                    // Regenerate server reports
+                    utils.generateServerReports();
+                    
+                    // Show success message
+                    utils.showMessage(`Umefanikiwa kujibu ripoti ${reportId}!`, 'success');
+                },
+
+                // Handle reply cancel
+                handleReplyCancel: function(e) {
+                    const reportId = e.currentTarget.getAttribute('data-report-id');
+                    const replyTextarea = document.querySelector(`.server-reply-textarea[data-report-id="${reportId}"]`);
+                    
+                    // Clear textarea
+                    replyTextarea.value = '';
+                },
+
+                // Handle password change
+                handlePasswordChange: function(e) {
+                    e.preventDefault();
+                    
+                    if (!utils.validatePasswordChangeForm()) {
+                        utils.showMessage('Tafadhali jaza sehemu zote zinazohitajika.', 'error');
+                        return;
+                    }
+
+                    elements.changePasswordBtn.classList.add('loading');
+                    elements.changePasswordBtn.disabled = true;
+                    
+                    // Get form values
+                    const currentPassword = elements.currentPasswordInput.value.trim();
+                    const newPassword = elements.newPasswordInput.value.trim();
+                    
+                    // Simulate password change process
+                    setTimeout(function() {
+                        elements.changePasswordBtn.classList.remove('loading');
+                        elements.changePasswordBtn.disabled = false;
+                        
+                        // Check current password
+                        if (currentPassword === serverCredentials.password) {
+                            // Update password
+                            serverCredentials.password = newPassword;
+                            utils.saveServerCredentials();
+                            
+                            // Clear form
+                            elements.passwordChangeForm.reset();
+                            elements.currentPasswordInput.closest('.form-group').classList.remove('filled');
+                            elements.newPasswordInput.closest('.form-group').classList.remove('filled');
+                            elements.confirmPasswordInput.closest('.form-group').classList.remove('filled');
+                            
+                            utils.showMessage('Nenosiri umebadilishwa kwa mafanikio!', 'success');
+                        } else {
+                            // Current password is incorrect
+                            elements.currentPasswordInput.closest('.form-group').classList.add('error');
+                            utils.showMessage('Nenosiri la sasa si sahihi.', 'error');
+                        }
+                    }, 1500);
+                },
+
+                init: function() {
+                    // Add event listeners
+                    elements.serverLoginForm.addEventListener('submit', serverHandlers.handleLogin);
+                    elements.serverLogoutBtn.addEventListener('click', serverHandlers.handleLogout);
+                    elements.passwordChangeForm.addEventListener('submit', serverHandlers.handlePasswordChange);
+                    
+                    // Add input event listeners for server login form
+                    elements.serverEmailInput.addEventListener('input', formHandlers.updateFilledState);
+                    elements.serverPasswordInput.addEventListener('input', formHandlers.updateFilledState);
+                    elements.serverAccessCodeInput.addEventListener('input', formHandlers.updateFilledState);
+                    
+                    // Add input event listeners for password change form
+                    elements.currentPasswordInput.addEventListener('input', formHandlers.updateFilledState);
+                    elements.newPasswordInput.addEventListener('input', formHandlers.updateFilledState);
+                    elements.confirmPasswordInput.addEventListener('input', formHandlers.updateFilledState);
+                    
+                    // Initial check to update labels on load if fields are pre-filled
+                    formHandlers.updateFilledState(elements.serverEmailInput);
+                    formHandlers.updateFilledState(elements.serverPasswordInput);
+                    formHandlers.updateFilledState(elements.serverAccessCodeInput);
+                    formHandlers.updateFilledState(elements.currentPasswordInput);
+                    formHandlers.updateFilledState(elements.newPasswordInput);
+                    formHandlers.updateFilledState(elements.confirmPasswordInput);
+                }
+            };
+
+            // UI Handlers
+            const uiHandlers = {
+                // Tab switching logic
+                switchTab: function(e) {
+                    const targetTab = e.currentTarget.getAttribute('data-tab');
+                    
+                    elements.tabs.forEach(function(tab) {
+                        tab.classList.remove('active');
+                    });
+                    elements.tabContents.forEach(function(content) {
+                        content.classList.remove('active');
+                    });
+
+                    e.currentTarget.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+
+                    // Update data when switching to specific tabs
+                    if (targetTab === 'dashboard') {
+                        utils.updateDashboard();
+                        utils.generateWeeklyChart();
+                        utils.generateTypeChart();
+                    } else if (targetTab === 'community-reports') {
+                        utils.generateCommunityReports();
+                    } else if (targetTab === 'jamii') {
+                        utils.generateStories();
+                    } else if (targetTab === 'server') {
+                        // Always allow access to server tab, but show appropriate content
+                        if (serverLoggedIn) {
+                            utils.generateServerReports();
+                        }
+                    }
+                },
+
+                // Handle FAB click
+                handleFabClick: function() {
+                    window.location.href = 'mailto:msafiribaruti157@gmail.com';
+                },
+
+                // Modal handlers
+                closeModal: function() {
+                    elements.reportModal.style.display = 'none';
+                },
+
+                handleDownloadReport: function() {
+                    // Get the current report data from modal
+                    const reportData = {
+                        trackingNumber: elements.modalTrackingNumber.textContent,
+                        date: elements.modalDate.textContent,
+                        type: elements.modalType.textContent,
+                        description: 'Ripoti imetumwa kwa PCCB kupitia mfumo wa TAKUKURU Online'
+                    };
+                    utils.downloadReportCertificate(reportData);
+                },
+
+                init: function() {
+                    // Attach tab listeners
+                    elements.tabs.forEach(function(tab) {
+                        tab.addEventListener('click', uiHandlers.switchTab);
+                    });
+
+                    // Attach FAB listener
+                    elements.fab.addEventListener('click', uiHandlers.handleFabClick);
+
+                    // Modal event listeners
+                    elements.modalClose.addEventListener('click', uiHandlers.closeModal);
+                    elements.closeModalBtn.addEventListener('click', uiHandlers.closeModal);
+                    elements.downloadReportBtn.addEventListener('click', uiHandlers.handleDownloadReport);
+
+                    // Close modal when clicking outside
+                    window.addEventListener('click', function(event) {
+                        if (event.target === elements.reportModal) {
+                            uiHandlers.closeModal();
+                        }
+                    });
+                }
+            };
+
+            // Initialize all modules
+            try {
+                formHandlers.init();
+                jamiiHandlers.init();
+                reportTracker.init();
+                serverHandlers.init();
+                uiHandlers.init();
+                
+                // Initialize dashboard with existing data
+                utils.updateDashboard();
+                utils.generateWeeklyChart();
+                utils.generateTypeChart();
+                utils.generateCommunityReports();
+                utils.generateStories();
+                
+                // Start auto-refresh for status updates
+                utils.startAutoRefresh();
+                
+                console.log('TAKUKURU Reporting System initialized successfully');
+            } catch (error) {
+                console.error('Error initializing TAKUKURU Reporting System:', error);
+                utils.showMessage('Kuna tatizo limejitokeza wakati wa kuanzisha mfumo. Tafadhali jaribu tena.', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
